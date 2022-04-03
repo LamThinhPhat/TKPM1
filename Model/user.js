@@ -8,7 +8,6 @@ const user = new Schema({
     firstName: { type: String, maxlength: 15, required: true },
     lastName: { type: String, maxlength: 15, required: true },
     email: { type: String, required: true },
-    address: { type: String, requred: true},
     password: { type: String, required: true },
     address: { type: String, maxlength: 100, required: true },
     role: { type: int, default: 0 }, //user/admin

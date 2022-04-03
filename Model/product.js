@@ -8,7 +8,6 @@ const ObjectId = Schema.ObjectId;
 const product = new Schema({
     id: ObjectId,
     name: { type: String, maxlength: 100, required: true },
-    gender: { type: Boolean }, //0 = men / 1 = women
     price: { type: Number, required: true },
     image: { type: Array },
     category: { type: String, required: true },

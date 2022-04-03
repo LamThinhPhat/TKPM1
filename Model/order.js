@@ -8,12 +8,7 @@ const order = new Schema({
     userID: { type: String, required: true },
     products: { type: Array, required: true },
     name: { type: String, required: true },
-    number: { type: String, required: true },
-    address: { type: String, required: true },
-    payment: { type: String, required: true },
     status: { type: String, required: true },
-    process: { type: Array, required: true },
-    ship: { type: Number, required: true },
     voucher_id: {type: String, required: true},
     total: { type: Number, required: true },
 }, {

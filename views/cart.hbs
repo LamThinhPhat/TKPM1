@@ -1,100 +1,88 @@
 <link rel="stylesheet" href="/css/cart.css">
 
-<div class="shopping-cart">
-  <!-- Title -->
-  <div class="title">
-    Shopping Bag
-  </div>
- 
-  <!-- Product #1 -->
-  <div class="item">
-    <div class="buttons">
-      <span class="delete-btn"></span>
-      <span class="like-btn"></span>
+<div class="CartContainer">
+    <ul class="Header">
+        <li class="text-center"><span>Product </span></li>
+        <li class="text-center"><span>Name</span> </li>
+        <li class="text-center"><span>Amount</span></li>
+        <li class="text-center"><span>Price</span></li>
+    </ul>
+    <div class="CartList">
+    <ul class="Cart-Items">
+        <li class="image-box">
+            <img src="/images/s&w.jpg" style="width:auto;height:150px;" />
+        </li>
+      <li>
+          <span class="product-name" >Spice & wolf</span>
+          </li>
+        <li style="padding-left:65px">
+			<div class="btn cart">+</div>
+          <span class="product-amount">3</span>
+		  	<div class="btn cart">-</div>
+
+        </li>
+        <li>
+          		<span class="price">3$</span>
+   	   	  		<div class="remove"><u>Remove</u></div>
+        </li>
+    </ul>
+	
     </div>
- 
-    <div class="image">
-      <img src="item-1.png" alt="" />
+	<div class="col-md-12">
+    <ul class="CartInfo">
+        <div class="col-md-12">
+            <div class="row">
+        <li>
+                <span style="float:left;margin-right:123px">Payment:</span>
+                <div id="payment-radio">
+					COD<input type="radio" name="payment" value="cod" checked="checked"style="margin:10px" />
+    				Card<input type="radio" name="payment" value="card" style="margin:10px" />
+				</div>
+				    <div class="input-card" >
+        				<div class="wrap-input100 validate-input m-b-16" data-validate = "Card ID">
+                    	<input class="input100" type="text" name="Card ID" placeholder="Card ID">
+                    	<span class="focus-input100"></span>
+                		</div>
+    				</div>
+        </li>
+        </div>
+        <div class="row">
+        <li>
+                <div class="input-voucher" style="width:83%">
+        				<div class="wrap-input100 validate-input m-b-16" data-validate = "Voucher" style="width:100%">
+                    	<input class="input100" type="text" name="Voucher" placeholder="Voucher">
+                    	<span class="focus-input100"></span>
+                		</div>
+						<button class="btn btn-secondary" style="float: right;height:63px">Apply
+                    	</button>
+    				</div>
+        </li>
+        </div>
+        <div class="row" style="width:100%">
+        <li>
+                <span style="float:left;margin-right:90px">Total:</span>
+                <span class="Total"style="margin-left:60px">3$</span>
+            </li>
+			<li style="margin:auto">
+				<button class="btn btn-secondary" style="width:150%">Checkout
+                    	</button>
+			</li>
+            </div>
+    </ul>
     </div>
- 
-    <div class="description">
-      <span>Common Projects</span>
-      <span>Bball High</span>
-      <span>White</span>
     </div>
- 
-    <div class="quantity">
-      <button class="plus-btn" type="button" name="button">
-        <img src="plus.svg" alt="" />
-      </button>
-      <input type="text" name="name" value="1">
-      <button class="minus-btn" type="button" name="button">
-        <img src="minus.svg" alt="" />
-      </button>
-    </div>
- 
-    <div class="total-price">$549</div>
-  </div>
- 
-  <!-- Product #2 -->
-  <div class="item">
-    <div class="buttons">
-      <span class="delete-btn"></span>
-      <span class="like-btn"></span>
-    </div>
- 
-    <div class="image">
-      <img src="item-2.png" alt=""/>
-    </div>
- 
-    <div class="description">
-      <span>Maison Margiela</span>
-      <span>Future Sneakers</span>
-      <span>White</span>
-    </div>
- 
-    <div class="quantity">
-      <button class="plus-btn" type="button" name="button">
-        <img src="plus.svg" alt="" />
-      </button>
-      <input type="text" name="name" value="1">
-      <button class="minus-btn" type="button" name="button">
-        <img src="minus.svg" alt="" />
-      </button>
-    </div>
- 
-    <div class="total-price">$870</div>
-  </div>
- 
-  <!-- Product #3 -->
-  <div class="item">
-    <div class="buttons">
-      <span class="delete-btn"></span>
-      <span class="like-btn"></span>
-    </div>
- 
-    <div class="image">
-      <img src="item-3.png" alt="" />
-    </div>
- 
-    <div class="description">
-      <span>Our Legacy</span>
-      <span>Brushed Scarf</span>
-      <span>Brown</span>
-    </div>
- 
-    <div class="quantity">
-      <button class="plus-btn" type="button" name="button">
-        <img src="plus.svg" alt="" />
-      </button>
-      <input type="text" name="name" value="1">
-      <button class="minus-btn" type="button" name="button">
-        <img src="minus.svg" alt="" />
-      </button>
-    </div>
- 
-    <div class="total-price">$349</div>
-  </div>
 </div>
 
-<script src="/js/cart.js"></script>
+<script src="/js/jquery.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+	$("div.input-card").hide();
+    $("input[value$='card']").click(function() {
+        $("div.input-card").show();
+    });
+	$("input[value$='cod']").click(function() {
+        $("div.input-card").hide();
+    });
+});
+</script>
