@@ -1,0 +1,98 @@
+.Header {
+    margin: auto;
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    align-items: center;
+    align-content: center;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    background: #0fbbad;
+    color: white;
+    list-style: none;
+    border-radius: 20px;
+
+}
+.Heading {
+    font-size: 20px;
+    font-family: 'Open Sans';
+    font-weight: 700;
+    color: #2F3841;
+}
+
+.Action {
+    font-size: 14px;
+    font-family: 'Open Sans';
+    font-weight: 600;
+    color: #E44C4C;
+    cursor: pointer;
+    border-bottom: 1px solid #E44C4C;
+}
+
+.ul.Cart-Items li{
+  display: inline-block;
+  
+}
+.Cart-Items {
+    margin: auto;
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: flex-end;
+    list-style: none;
+    align-items: center;
+    align-content: center;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    padding-top:10px;
+    padding-bottom:10px;
+}
+
+.Cart-Items li {
+    display: inline-block;
+    width: 33%;
+    float: left;
+    font-size: 25px;
+    text-align: center;
+}
+
+.about {
+    height: 100%;
+    width: 24%;
+}
+
+.title {
+    padding-top: 10px;
+    line-height: 10px;
+    font-size: 32px;
+    font-family: 'Open Sans';
+    font-weight: 800;
+    color: #202020;
+}
+.InfoContainer {
+    margin: auto;
+    width: 70%;
+    box-sizing: border-box;
+    height: 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom:200px;
+}
+
+ul.Header li.text-center {
+    text-align: center!important;
+    font-size: 35px;
+    font-family: 'Open Sans';
+    font-weight: 600;
+}
+
+.SortOptions {
+    margin: auto;
+    flex-direction: row;
+    height: 30px;
+    align-items: space-around;
+}

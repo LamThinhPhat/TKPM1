@@ -2,56 +2,63 @@
     <div class="container">
         <div class="myaccount-main">
             <h1 style="margin:20px"> My account</h1>
+            <form action="/user/{{user._id}}" method="POST" id="form-update-user">
                 <div class="row">
-                <div class="col-md-6">
-                   <div class="wrap-input100 validate-input m-b-16" data-validate = "Username is required">
-                    <input class="input100" type="text" name="username" placeholder="Username">
-                    <span class="focus-input100"></span>
-                </div>
-                </div>
+                    <div class="col-md-6">
+                        <div class="wrap-input100 validate-input m-b-16" data-validate="First name is required">
+                            <input class="input100" id="first-name-update" type="text"
+                                {{#if newinfo}}value="{{newinfo.firstName}}" {{else}}value="{{user.firstName}}" {{/if}}
+                                name="firstName" placeholder="First name">
+                            <span class="focus-input100"></span>
+                        </div>
+                    </div>
 
-                <div class="col-md-6">
-                <div class="wrap-input100 validate-input m-b-16" data-validate = "Password is required">
-                    <input class="input100" type="password" name="pass" placeholder="Password">
-                    <span class="focus-input100"></span>
-                </div>
-                </div>
+                    <div class="col-md-6">
+                        <div class="wrap-input100 validate-input m-b-16" data-validate="Last name is required">
+                            <input class="input100" type="text" id="last-name-update" placeholder="Last name"
+                                {{#if newinfo}}value="{{newinfo.lastName}}" {{else}}value="{{user.lastName}}" {{/if}}
+                                name="lastName">
+                            <span class="focus-input100"></span>
+                        </div>
+                    </div>
 
-                <div class="col-md-6">
-                <div class="wrap-input100 validate-input m-b-16" data-validate = "First name is required">
-                    <input class="input100" type="text" name="firstname" placeholder="First name">
-                    <span class="focus-input100"></span>
-                </div>
-                </div>
-
-                <div class="col-md-6">
-                <div class="wrap-input100 validate-input m-b-16" data-validate = "Last name is required">
-                    <input class="input100" type="text" name="lastname" placeholder="Last name">
-                    <span class="focus-input100"></span>
-                </div>
-                </div>
-
-                <div class="col-md-12">
-                <div class="wrap-input100 validate-input m-b-16" data-validate = "Email is required">
-                    <input class="input100" type="text" name="Email" placeholder="Email">
-                    <span class="focus-input100"></span>
-                </div>
-                </div>
+                    <div class="col-md-12">
+                        <div class="wrap-input100 validate-input m-b-16" data-validate="Email is required">
+                            <input class="input100" id="email-name-update" type="text" {{#if
+                            newinfo}}value="{{newinfo.email}}" {{else}}value="{{user.email}}" {{/if}} name="email"
+                                placeholder="Email">
+                            <span class="focus-input100"></span>
+                        </div>
+                    </div>
 
 
-                <div class="col-md-12">
-                <div class="wrap-input100 validate-input m-b-16" data-validate = "Address is required">
-                    <input class="input100" type="text" name="Address" placeholder="Address">
-                    <span class="focus-input100"></span>
-                </div>
-                </div>
+                    <div class="col-md-12">
+                        <div class="wrap-input100 validate-input m-b-16" data-validate="Address is required">
+                            <input class="input100" id="address-update" type="text"
+                                {{#if newinfo}}value="{{newinfo.address}}" {{else}}value="{{user.address}}" {{/if}}
+                                name="address" placeholder="Address">
+                            <span class="focus-input100"></span>
+                        </div>
+                    </div>
 
+                    {{#if error}}
+                    <div class="text-right" style="color: red;">Email has been used</div>
+                    {{/if}}
 
-                <div class="col-md-12">
-                    <button class="btn btn-secondary" style="float: right;margin-bottom:10px">Update
-                    </button>
+                    {{#if newinfo}}
+                    <div class="text-right" style="color: green;">Update success</div>
+                    {{/if}}
+
+                    <div class="col-md-12">
+                        {{#ifCond user.role 0}}
+                        <a class="btn btn-secondary" style="float: left;margin-bottom:10px" href ="/user/applyforvendor/{{user._id}} ">Apply for vendor
+                        </a>
+                        {{/ifCond}}
+                        <button class="btn btn-secondary" style="float: right;margin-bottom:10px" type="submit" value="SAVE">Update
+                        </button>
+                    </div>
                 </div>
+            </form>
+
         </div>
     </div>
-</div>
-

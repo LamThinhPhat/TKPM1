@@ -7,7 +7,8 @@
  require('dotenv').config();
  const http = require('http');
  const mongoose = require('mongoose');
- 
+
+
  /**
   * Get port from environment and store in Express.
   */
@@ -15,7 +16,6 @@
  mongoose.connect(process.env.DB_CONNECT)
    .then(() => {
      console.log('connect success');
- 
      const app = require('../app');
      const debug = require('debug')('nmcnpm-19clc8:server');
  

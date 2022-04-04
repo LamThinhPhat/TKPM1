@@ -10,8 +10,8 @@ const user = new Schema({
     email: { type: String, required: true },
     password: { type: String, required: true },
     address: { type: String, maxlength: 100, required: true },
-    role: { type: int, default: 0 }, //user/admin
-    status: { type: Boolean, default: false }, //ban/unban
+    role: { type: Number, default: 0 }, //user/admin
+    status: { type: Boolean, default: true }, //ban/unban
     cart: { type: Array,default:[] },
     emailToken: { type: String },
     active: { type: Boolean, default: false },

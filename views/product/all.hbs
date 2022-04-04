@@ -1,0 +1,36 @@
+<div class="ourproduct">
+    <div class="container">
+        <div class="row product_style_3">
+        <!-- product -->
+        {{#each product}}
+        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+            <div class="full product">
+                <div class="product_img">
+                    <div class="center"> <img src="{{this.image}}" alt="#"/>
+                        <div class="overlay_hover"> <a class="add-bt" href= {{this.slug}}> View</a> </div>
+                    </div>
+                </div>
+                <div class="product_detail text_align_center">
+                    <p class="product_price">{{this.price}}đ</p>
+                    <p class="product_descr"><a href={{this.slug}}>{{this.name}}</a></p>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+        <!-- end product -->
+        <div class="col-md-12">
+            <div class="pagination col-md-12"style="margin-left:10px">
+                <ul class="page-list">
+                    <li class="page"><a href="#">&lt;&lt;</a></li>
+                    {{#each pages}}
+                    <li class=" page"><a href={{this.pageA}}>{{this.page}}</a></li>
+                    {{/each}}
+                    <li class="page"><a href="#">&gt;&gt;</a></li>
+                </ul>
+            </div>
+
+        </div>
+        <div id="current-page" style="display: none;" name={{currentPage}}></div>
+    </div>
+
+</div>

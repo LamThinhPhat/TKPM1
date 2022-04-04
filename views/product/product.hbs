@@ -1,0 +1,53 @@
+<div class="layout_padding-2">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                <div class="img_box">
+                    <figure><img src={{detail.image}} alt="#" /></figure>
+                </div>
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 product_detail_side">
+                <div class="abotext_box">
+                    <div class="product-heading">
+                        <h2>{{detail.name}}</h2>
+                        <h2>Category:{{detail.category}}</h2>
+                        <h2>Publisher:{{detail.publisher}}</h2>
+                    </div>
+                    <div class="product-detail-side">
+                        <span class="new-price">{{detail.price}}đ</span>
+                    </div>
+                    <div class="detail-contant">
+                        <p>
+                        </p>
+                        <form class="cart" method="post" action="shop-cart.html">
+                            <div class="quantity">
+                                <input step="1" min="1" max="5" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" type="number">
+                            </div>
+                            <button type="submit" class="bt_main">Add to cart</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="full">
+                    <div class="tab_bar_section">
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#description">Description</a> </li>
+                        </ul>
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <div id="description" class="tab-pane active">
+                                <div class="product_desc">
+                                    <p>{{detail.description}}</p>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

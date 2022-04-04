@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <!-- site metas -->
-    <title>niture</title>
+    <title>DonutBookStore</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -74,7 +74,6 @@
                             </div>
                         </div>
                         <div class="col-lg-9">
-
                             <div class="right_header_info">
                                 <div class="form-group has-search" style="display: inline-block;float:left;">
                                 <span class="fa fa-search form-control-feedback"></span>
@@ -88,13 +87,23 @@
                                           style="display: inline; margin-right: 15px">
                                             Account
                                           </button>
+                                          {{#if user}}
                                           <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                            <a class="dropdown-item" href="/login">Login</a>
-                                            <a class="dropdown-item" href="/signup">Signup</a>
                                             <a class="dropdown-item" href="/user/information">User information</a>
                                             <a class="dropdown-item" href="/user/order">Order</a>
+                                            <a class="dropdown-item" href="/user/changepassword">Change password</a>
+                                            {{#ifCond user.role 1}}
+                                            <a class="dropdown-item" href="/vendor/manageproduct/{{user._id}}">Manage Product</a>
+                                            {{/ifCond}}
+                                            <a class="dropdown-item" href="/user/logout">Logout</a>
+                                          </div>
+                                          {{else}}
+                                         <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                            <a class="dropdown-item" href="/login">Login</a>
+                                            <a class="dropdown-item" href="/login/signup">Signup</a>
                                           </div>
                                         </div>
+                                        {{/if}}
                                     </li>
                                     <li>
                                         <a href="/cart"><img style="margin-right: 15px;" src="/icon/3.png" alt="#" /></a>
@@ -154,6 +163,8 @@
 <script src="/js/popper.min.js"></script>
 <script src="/js/bootstrap.bundle.min.js"></script>
 <script src="/js/jquery-3.0.0.min.js"></script>
+<script src="/js/slider.js"></script>
+<script src="/js/cart.js"></script>
 <div id="dropDownSelect1"></div>
 
 <!--===============================================================================================-->

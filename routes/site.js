@@ -7,9 +7,6 @@ router.get('/about', SiteController.AboutPage);
 
 router.get('/', SiteController.HomePage);
 
-router.get('/product', SiteController.Product);
-
-router.get('/signup', SiteController.SignUp);
 
 router.get('/cart', SiteController.Cart);
 

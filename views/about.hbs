@@ -1,18 +1,58 @@
-<div class="about">
-    <div class="container">
-        <div class="row">
-            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
-                <div class="aboutimg">
-                    <h3>About us</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi</p>
-                    <a href="#">Read More</a>
-                </div>
+<link rel="stylesheet" href="/css/about.css">
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="WebInfoHeader">
+                <li class="text-center"><span>About us </span></li>
             </div>
-            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
-                <div class="aboutimg">
-                    <figure><img src="images/Avangarda_klu.jpg"/></figure>
+            <div class="WebInfoBody">
+                <li class="p-2 mb-1 bg-white text-dark"><span>We are Donuts BookStore. We believe passionately in great bargains and excellent service, which is why we commit ourselves to giving you the best of both.</span></li>
+            </div>
+
+            <div class="WebInfoBody">
+                <li class="p-2 mb-1 bg-white text-dark"><span>If you’re looking for something new, you’re in the right place. We strive to be industrious and innovative, offering our customers something they want, putting their desires at the top of our priority list.</span></li>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="MemInfo">
+                <div class="row">
+                    <div class="Member">
+                        <img src="/images/DNNK.jpg" class="rounded-circle mx-auto d-block border" width="100px" height="100px"/>
+                        <p class="text-center">Đoàn Ngọc Như Khôi</p>
+                    </div>
+                    <div class="Member">
+                        <img src="/images/PNQ.jpg" class="rounded-circle mx-auto d-block border"  width="100px" height="100px"/>
+                        <p class="text-center">Phạm Nhật Quang</p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="Member">
+                        <img src="/images/PCHD.jpg" class="rounded-circle mx-auto d-block border" width="100px" height="100px"/>
+                        <p class="text-center">Phan Công Hữu Danh</p>
+                    </div>
+                    <div class="Member">
+                        <img src="/images/TVH.jpg" class="rounded-circle mx-auto d-block border"  width="100px" height="100px"/>
+                        <p class="text-center">Trần Việt Hoàng</p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<script src="/js/jquery.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+	$("div.input-card").hide();
+    $("input[value$='card']").click(function() {
+        $("div.input-card").show();
+    });
+	$("input[value$='cod']").click(function() {
+        $("div.input-card").hide();
+    });
+});
+</script>

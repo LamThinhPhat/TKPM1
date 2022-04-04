@@ -155,6 +155,11 @@ a,
 	transition: all .3s ease-in-out;
 }
 
+.text-img {
+	max-width: 80%;
+	height: auto;
+}
+
 img {
 	max-width: 100%;
 	height: auto;
@@ -1156,8 +1161,6 @@ nav.main-menu {
 	padding: 15px 0px;
 }
 
-.sub-full {}
-
 .simple-down {
 	padding: 15px;
 }
@@ -1912,7 +1915,7 @@ color: #fff;
 
 .title {
 	text-align:center;
-	padding-bottom: 60px;
+	padding-bottom: 40px;
 
 }
 
@@ -2031,6 +2034,7 @@ text-transform: uppercase;
  	font-weight: 500;
  	font-size: 22px;
  	line-height: 22px;
+	font-family: 'Playfair Display', serif;
  }
 
 
@@ -2103,7 +2107,7 @@ background: #f0efef;
 
 .footer {
 	background: #01312e;
-    padding-top: 90px;
+    padding-top: 30px;
 }
 ul.sociel {
 	display: flex;
@@ -2200,10 +2204,7 @@ color: #fff;
 .copyright a:hover {
 	color: #4eddd2;
 }
-#map {
-    height: 100%;
-    min-height: 480px;
-}
+
 /** end footer section **/
 /*---------------------------------------------------------------------
     ener page css
@@ -2300,12 +2301,73 @@ margin-top: 35px;
      line-height: 23px;
      padding: 7px 20px 20px 20px;
 }
+/*User information start here*/
+.myaccount-main{
+	margin-top:50px;
+	margin-bottom:200px;
+}
+/*User information end here*/
+/*Verify page start here*/
+.verify{
+	min-height: 26.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
+.verify .verify-container {
+    padding: 7em 20em;
+    background-color: #0FBBAD;
+    color: white;
+}
 
+.verify .verify-container h1 {
+    text-align: center;
+    font-size: 3em;
+}
 
+.verify .verify-container p {
+    font-size: 1.5em;
+}
+/*Verify page end here*/
 
+/**Pagination*/
+.pagination .page-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+	margin:auto;
+}
 
+.pagination .page-list .page a {
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.466);
+    min-width: 2.3em;
+    height: 1.7em;
+    display: block;
+    margin-left: 0.5em;
+    text-align: center;
+    line-height: 1.7em;
+    font-size: 1em;
+    cursor: pointer;
+    border: 1px solid rgba(0, 0, 0, 0.342);
+    border-radius: 3px;
+}
 
+.pagination .page-list .page:first-child {
+    margin-left: 0;
+}
+
+.pagination .page-list .page:hover a {
+    opacity: 0.7;
+}
+
+.current-page a {
+    background-color: #EA552B;
+    border: none !important;
+    color: white !important;
+}
 /** product **/
 .product {
     padding: 0 0 30px;
@@ -2873,4 +2935,98 @@ a.article:hover {
 }
 
 /*--login end here--*/
+.slider{
+	width: 800px;
+	height: 300px;
+	border-radius: 10px;
+	overflow: hidden;
+	margin:auto;
+	padding-top: 20px;
+}
 
+.slides{
+	width: 500%;
+	height: 300px;
+	display: flex;
+}
+
+.slides input{
+	display: none;
+}
+
+.slide{
+	width: 20%;
+	transition: 1.5s
+}
+
+.slide img{
+	width: 800px;
+	height: 300px;
+}
+
+.navigation-manual{
+	position: absolute;
+	width: 800px;
+	margin-top: 1px;
+	display: flex;
+	justify-content: center;
+}
+
+.manual-btn{
+	border: 2px solid #40D3DC;
+	padding: 5px;
+	border-radius: 10px;
+	cursor: pointer;
+	transition: 1s;
+}
+
+.manual-btn:not(:last-child){
+	margin-right: 40px;
+}
+
+.manual-btn:hover{
+	background: #40D3DC;
+}
+
+#radio1:checked ~ .first{
+	margin-left: 0;
+}
+
+#radio2:checked ~ .first{
+	margin-left: -20%;
+}
+
+#radio3:checked ~ .first{
+	margin-left: -40%;
+}
+
+.navigation-auto{
+	position: absolute;
+	display: flex;
+	width: 800px;
+	justify-content: center;
+	margin-top: 301px;
+}
+
+.navigation-auto div{
+	border: 2px solid #40D3DC;
+	padding: 5px;
+	border-radius: 10px;
+	transition: 1s;
+}
+
+.navigation-auto div:not(:last-child){
+	margin-right: 40px;
+}
+
+#radio1:checked ~ .navigation-auto .auto-btn1{
+	background: #40D3DC;
+}
+
+#radio2:checked ~ .navigation-auto .auto-btn2{
+	background: #40D3DC;
+}
+
+#radio3:checked ~ .navigation-auto .auto-btn3{
+	background: #40D3DC;
+}

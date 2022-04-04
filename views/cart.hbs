@@ -1,88 +1,71 @@
 <link rel="stylesheet" href="/css/cart.css">
 
-<div class="CartContainer">
-    <ul class="Header">
-        <li class="text-center"><span>Product </span></li>
-        <li class="text-center"><span>Name</span> </li>
-        <li class="text-center"><span>Amount</span></li>
-        <li class="text-center"><span>Price</span></li>
-    </ul>
-    <div class="CartList">
-    <ul class="Cart-Items">
-        <li class="image-box">
-            <img src="/images/s&w.jpg" style="width:auto;height:150px;" />
-        </li>
-      <li>
-          <span class="product-name" >Spice & wolf</span>
-          </li>
-        <li style="padding-left:65px">
-			<div class="btn cart">+</div>
-          <span class="product-amount">3</span>
-		  	<div class="btn cart">-</div>
+<h1>SHOPPING CART</h1>
 
-        </li>
-        <li>
-          		<span class="price">3$</span>
-   	   	  		<div class="remove"><u>Remove</u></div>
-        </li>
-    </ul>
-	
+<div class="shopping-cart">
+
+  <div class="column-labels">
+    <label class="product-image">Image</label>
+    <label class="product-details">Product</label>
+    <label class="product-price">Price</label>
+    <label class="product-quantity">Quantity</label>
+    <label class="product-removal">Remove</label>
+    <label class="product-line-price">Total</label>
+  </div>
+
+  <div class="product">
+    <div class="product-image">
+      <img src="images/s&w.jpg">
     </div>
-	<div class="col-md-12">
-    <ul class="CartInfo">
-        <div class="col-md-12">
-            <div class="row">
-        <li>
-                <span style="float:left;margin-right:123px">Payment:</span>
-                <div id="payment-radio">
-					COD<input type="radio" name="payment" value="cod" checked="checked"style="margin:10px" />
-    				Card<input type="radio" name="payment" value="card" style="margin:10px" />
-				</div>
-				    <div class="input-card" >
-        				<div class="wrap-input100 validate-input m-b-16" data-validate = "Card ID">
-                    	<input class="input100" type="text" name="Card ID" placeholder="Card ID">
-                    	<span class="focus-input100"></span>
-                		</div>
-    				</div>
-        </li>
-        </div>
-        <div class="row">
-        <li>
-                <div class="input-voucher" style="width:83%">
-        				<div class="wrap-input100 validate-input m-b-16" data-validate = "Voucher" style="width:100%">
-                    	<input class="input100" type="text" name="Voucher" placeholder="Voucher">
-                    	<span class="focus-input100"></span>
-                		</div>
-						<button class="btn btn-secondary" style="float: right;height:63px">Apply
-                    	</button>
-    				</div>
-        </li>
-        </div>
-        <div class="row" style="width:100%">
-        <li>
-                <span style="float:left;margin-right:90px">Total:</span>
-                <span class="Total"style="margin-left:60px">3$</span>
-            </li>
-			<li style="margin:auto">
-				<button class="btn btn-secondary" style="width:150%">Checkout
-                    	</button>
-			</li>
-            </div>
-    </ul>
+    <div class="product-details">
+      <div class="product-title">Spice & Wolf</div>
     </div>
+    <div class="product-price">69000</div>
+    <div class="product-quantity">
+      <input type="number" value="2" min="1">
     </div>
+    <div class="product-removal">
+      <button class="remove-product">
+        Remove
+      </button>
+    </div>
+    <div class="product-line-price">69000</div>
+  </div>
+
+  <div class="product">
+    <div class="product-image">
+      <img src="images/wolfie.jpg">
+    </div>
+    <div class="product-details">
+      <div class="product-title">Wolfie The Bunny</div>
+    </div>
+    <div class="product-price">52000</div>
+    <div class="product-quantity">
+      <input type="number" value="1" min="1">
+    </div>
+    <div class="product-removal">
+      <button class="remove-product">
+        Remove
+      </button>
+    </div>
+    <div class="product-line-price">52000</div>
+  </div>
+
+  <div class="totals">
+    <div class="totals-item">
+      <label>Subtotal</label>
+      <div class="totals-value" id="cart-subtotal">0</div>
+    </div>
+    <div class="totals-item">
+      <label>Tax (5%)</label>
+      <div class="totals-value" id="cart-tax">0</div>
+    </div>
+    <div class="totals-item totals-item-total">
+      <label>Grand Total</label>
+      <div class="totals-value" id="cart-total">0</div>
+    </div>
+  </div>
+      
+      <button class="checkout">Checkout</button>
+
 </div>
-
-<script src="/js/jquery.min.js"></script>
-
-<script>
-    $(document).ready(function() {
-	$("div.input-card").hide();
-    $("input[value$='card']").click(function() {
-        $("div.input-card").show();
-    });
-	$("input[value$='cod']").click(function() {
-        $("div.input-card").hide();
-    });
-});
-</script>

@@ -1,0 +1,19 @@
+<link rel="stylesheet" href="/css/search.css">
+
+<div class="SortOptions">
+    <li class="p-2 mb-1 text-left"><span>Sort by:</span></li>
+</div>
+
+<script src="/js/jquery.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+	$("div.input-card").hide();
+    $("input[value$='card']").click(function() {
+        $("div.input-card").show();
+    });
+	$("input[value$='cod']").click(function() {
+        $("div.input-card").hide();
+    });
+});
+</script>

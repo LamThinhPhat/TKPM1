@@ -1,0 +1,61 @@
+<div class="limiter">
+    <div class="container-login100">
+        <div class="wrap-login100 p-t-50 p-b-90">
+            <form action="/login/signup"method="POST" class="login100-form validate-form flex-sb flex-w">
+					<span class="login100-form-title p-b-51">
+						Signup
+					</span>
+
+                <div class="wrap-input100 validate-input m-b-16" data-validate = "Email is required">
+                    <input class="input100" type="text" name="email" placeholder="Email">
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="wrap-input100 validate-input m-b-16" data-validate = "Password is required">
+                    <input class="input100" type="password" name="password" placeholder="Password">
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="wrap-input100 validate-input m-b-16" data-validate = "Password is required">
+                    <input class="input100" type="password" name="confirmPassword" placeholder="Retype password">
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="wrap-input100 validate-input m-b-16" data-validate = "First name is required">
+                    <input class="input100" type="text" name="firstName" placeholder="First name">
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="wrap-input100 validate-input m-b-16" data-validate = "Last name is required">
+                    <input class="input100" type="text" name="lastName" placeholder="Last name">
+                    <span class="focus-input100"></span>
+                </div>
+
+
+                <div class="wrap-input100 validate-input m-b-16" data-validate = "Address is required">
+                    <input class="input100" type="text" name="address" placeholder="Address">
+                    <span class="focus-input100"></span>
+                </div>
+                {{#if emailExisted}}
+                <h4 style="color:red; text-align:right; margin-top: 1em;">Email has already been used</h4>
+                {{/if}}
+
+                {{#if passwordShort}}
+                <h4 style="color:red; text-align:right; margin-top: 1em;">Password must contain at least 8 characters)
+                </h4>
+                {{/if}}
+                {{#if passwordNotMatch}}
+                <h4 style="color:red; text-align:right; margin-top: 1em;">Password does not match</h4>
+                {{/if}}
+                <div class="container-login100-form-btn m-t-17">
+                    <button class="login100-form-btn">
+                        Signup
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+
