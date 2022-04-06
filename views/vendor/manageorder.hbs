@@ -7,7 +7,14 @@
             <article class="card">
                 <div class="card-body row">
                     <div class="col"> <strong>Order ID:</strong> ODID1 </div>
-                    <div class="col"><strong>Status:</strong> Confirmed</div>
+                    <div class="col"><strong>Status:</strong>
+                        <select name="status" id="status">
+                            <option value="confirmed">Confirmed</option>
+                            <option value="shipped">Shipped</option>
+                            <option value="packed">Packed</option>
+                            <option value="done">Done</option>
+                        </select>
+                    </div>
                     <div class="col"> <strong>Voucher:</strong> VCCD1 </div>
                     <div class="col"> <strong>Total:</strong> 190.000 VND </div>
                 </div>
@@ -39,14 +46,18 @@
             </table>
             <div class="line"></div>
         </div>
-        <button class="button cancel">
-                Cancel An Order
-        </button>
         <div class="card-body">
             <article class="card">
             <div class="card-body row">
                 <div class="col"> <strong>Order ID:</strong> ODID2 </div>
-                <div class="col"><strong>Status:</strong> Shipped </div>
+                <div class="col"><strong>Status:</strong>
+                        <select name="status" id="status">
+                            <option value="confirmed">Confirmed</option>
+                            <option value="shipped">Shipped</option>
+                            <option value="packed">Packed</option>
+                            <option value="done">Done</option>
+                        </select>
+                    </div>
                 <div class="col"> <strong>Voucher:</strong> VCCD2 </div>
                 <div class="col"> <strong>Total:</strong> 110.000 VND </div>
             </div>
@@ -72,8 +83,5 @@
             </table>
             <div class="line"></div>
         </div>
-    <button class="button cancel">
-        Cancel An Order
-    </button>
     </article>
 </div>

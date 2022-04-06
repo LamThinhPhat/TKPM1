@@ -1,0 +1,35 @@
+<link rel="stylesheet" href="/css/create_product.css">
+<form name="forms-add-product" method="POST" action='/vendor/edit/{{editProduct._id}}?_method=PUT' enctype="multipart/form-data">
+  <div class="container">
+    <h1>EDIT PRODUCT</h1>
+    <p style="text-align: center;">Fill in the following information.</p>
+    <hr>
+
+    <label for="pname"><b>Product Name</b></label>
+    <input type="text" placeholder="Enter product name..." name="name"  value="{{editProduct.name}}"required>
+
+    <label for="price"><b>Price</b></label>
+    <input type="number" placeholder="Enter price..." name="price"  value="{{editProduct.price}}"id="price"required>
+
+
+    <label for="image"><b>Old Image</b></label>
+    <img src={{editProduct.image}} width="20%">>
+
+    <label for="image"><b>New Image</b></label>
+    <input type="file" placeholder="Enter image source..." name="image" id="image" accept="image/*" style="padding-bottom: 15px">
+
+    <label for="amount"><b>Stock</b></label>
+    <input type="number" placeholder="Enter number..." name="amount" value="{{editProduct.amount}}" id="amount"required>
+
+    <label for="category"><b>Category</b></label>
+    <input type="text" placeholder="Enter category..." name="category" value="{{editProduct.category}}" id="category"required>
+
+    <label for="description"><b>Description</b></label>
+    <input type="text" placeholder="Enter description..." name="description"  value="{{editProduct.description}}"id="description" required>
+
+    <label for="publisher"><b>Publisher</b></label>
+    <input type="text" placeholder="Enter publisher..." name="publisher"  value="{{editProduct.publisher}}"id="publisher" required>
+    <hr>
+    <button type="submit" class="registerbtn">SAVE</button>
+  </div>
+</form>

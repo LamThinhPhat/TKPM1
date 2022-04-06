@@ -1,96 +1,85 @@
 <link rel="stylesheet" href="/css/manageproduct.css">
 <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
-<style>
-    h1 {text-align: center; padding-top: 40px; padding-bottom: 20px;}
-    .icon-bar {
-        margin: auto;
-        width: 50%;
-        background-color: #555;
-        overflow: auto;
-    }
-    .icon-bar a {
-        float: left;
-        width: 50%;
-        text-align: center;
-        padding: 12px 0;
-        transition: all 0.3s ease;
-        color: white;
-        font-size: 24px;
-
-    }
-
-    .icon-bar a:hover {
-        background-color: #000;
-    }
-
-    .active {
-        background-color: #04AA6D;
-    }
-
-    .table tbody tr:hover td{
-        background-color: rgb(226, 226, 226);
-    }
-</style>
-<h1 style="color:#008000; font-weight:bold" >PRODUCT LIST</h1>
+<h1 style="color:#008000; font-weight:bold">PRODUCT LIST</h1>
 <div class="iq-card-body" style="width: 80%; margin: auto">
     <div class="table-responsive">
         <table class="data-tables table table-striped table-bordered" style="width:100%">
-        <thead>
-            <tr>
-                <th width="10%" style="text-align: center;">Product Name</th>
-                <th width="7%" style="text-align: center;">Image</th>
-                <th width="5%" style="text-align: center;">Price (VND)</th>
-                <th width="5%" style="text-align: center;">Category</th>
-                <th width="10%" style="text-align: center;">Publisher</th>
-                <th width="5%" style="text-align: center;">Stock</th>
-                <th width="7%" style="text-align: center;">Date</th>
-                <th width="5%" style="text-align: center;">Sales</th>
-                <th width="10%" style="text-align: center;">Action</th>
-            </tr>
-        </thead>
-        <tbody>
-        {{#each product}}
-            <tr>
-                <td style="text-align: center; font-size: large; vertical-align:middle">{{this.name}}</td>
-                <td style="text-align: center;"><img src={{this.image}} style="width:auto;height:100px; vertical-align:middle" /></td>
-                <td style="text-align: center; font-size: large; vertical-align:middle">{{this.price}}</td> 
-                <td style="text-align: center; font-size: large; vertical-align:middle">{{this.category}}</td>
-                <td style="text-align: center; font-size: large; vertical-align:middle">{{this.publisher}}</td>
-                <td style="text-align: center; font-size: large; vertical-align:middle">{{this.amount}}</td>
-                <td style="text-align: center; font-size: large; vertical-align:middle">{{this.createdAt}}</td>
-                <td style="text-align: center; font-size: large; vertical-align:middle">{{this.sales}}</td>
-                <td style="vertical-align:middle">
-                    <div class="icon-bar">
-                        <a class="active" href="#">
-                            <i class="fas fa-pencil-alt"></i>
-                        </a>
-                        <a class="active" href="#">
-                            <i class="fas fa-trash-alt"></i>
-                        </a>
-                    </div>
-                </td>
-            </tr>
-        {{/each}}
-        </tbody>
-        <div class="col-md-12">
-            <div class="pagination col-md-12"style="margin-left:10px">
-                <ul class="page-list">
-                    <li class="page"><a href="#">&lt;&lt;</a></li>
-                    {{#each pages}}
-                    <li class=" page"><a href={{this.pageA}}>{{this.page}}</a></li>
-                    {{/each}}
-                    <li class="page"><a href="#">&gt;&gt;</a></li>
-                </ul>
-            </div>
+            <thead>
+                <tr>
+                    <th width="10%" style="text-align: center;">Product Name</th>
+                    <th width="7%" style="text-align: center;">Image</th>
+                    <th width="5%" style="text-align: center;">Price (VND)</th>
+                    <th width="5%" style="text-align: center;">Category</th>
+                    <th width="10%" style="text-align: center;">Publisher</th>
+                    <th width="5%" style="text-align: center;">Stock</th>
+                    <th width="7%" style="text-align: center;">Date</th>
+                    <th width="5%" style="text-align: center;">Sales</th>
+                    <th width="10%" style="text-align: center;">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each product}}
+                <tr>
+                    <td style="text-align: center; font-size: large; vertical-align:middle">{{this.name}}</td>
+                    <td style="text-align: center;"><img src={{this.image}}
+                            style="width:auto;height:100px; vertical-align:middle" /></td>
+                    <td style="text-align: center; font-size: large; vertical-align:middle">{{this.price}}</td>
+                    <td style="text-align: center; font-size: large; vertical-align:middle">{{this.category}}</td>
+                    <td style="text-align: center; font-size: large; vertical-align:middle">{{this.publisher}}</td>
+                    <td style="text-align: center; font-size: large; vertical-align:middle">{{this.amount}}</td>
+                    <td style="text-align: center; font-size: large; vertical-align:middle">{{this.createdAt}}</td>
+                    <td style="text-align: center; font-size: large; vertical-align:middle">{{this.sales}}</td>
+                    <td style="vertical-align:middle">
+                        <div class="icon-bar">
+                            <a class="active" href="/vendor/{{this._id}}/edit">
+                                <i class="fas fa-pencil-alt"></i>
+                            </a>
+                            <a class="active" href="/vendor/{{this._id}}/delete">
+                                <i class="fas fa-trash-alt"></i>
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
 
-        </div>
-        
-    </table>
-    <a href="/vendor/createproduct/{{vendor_id}}">
-    <button class="press create-button">
-        Create New Product
-    </button>
-            </a>
+
+        </table>
+                    <div class="col-md-12">
+                <div class="pagination col-md-12" style="margin-left:10px">
+                    <ul class="page-list">
+                        <li class="page"><a href="#">&lt;&lt;</a></li>
+                        {{#each pages}}
+                        <li class=" page"><a href={{this.pageA}}>{{this.page}}</a></li>
+                        {{/each}}
+                        <li class="page"><a href="#">&gt;&gt;</a></li>
+                    </ul>
+                </div>
+            </div>
+        <a href="/vendor/createproduct/{{vendor_id}}">
+            <button class="press create-button">
+                Create New Product
+            </button>
+        </a>
+        <div id="product-list-current-page" hidden name={{currentPage}}></div>
 
     </div>
+    <div class="modal fade" id="delete-book-modal" tabindex="-1" aria-labelledby="delete-confirm-modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="delete-confirm-modal">Confirm</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">Do you really want to delete this product?</div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button id="confirm-delete-product" type="button" class="btn btn-danger">Delete</button>
+            </div>
+        </div>
+    </div>
 </div>
+</div>
+

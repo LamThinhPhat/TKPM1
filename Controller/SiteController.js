@@ -1,3 +1,5 @@
+const Product = require("../Model/product")
+
 class SiteController{
 
     AboutPage(req,res){
@@ -15,6 +17,7 @@ class SiteController{
     Cart(req,res){
         res.render("cart");
     }
+
 }
 
 module.exports=new SiteController;

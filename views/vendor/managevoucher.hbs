@@ -1,0 +1,66 @@
+<link rel="stylesheet" href="/css/manageproduct.css">
+<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+
+<h1 style="color:#008000; font-weight:bold" >VOUCHER LIST</h1>
+<div class="iq-card-body" style="width: 80%; margin: auto">
+    <div class="table-responsive">
+        <table class="data-tables table table-striped table-bordered" style="width:100%">
+        <thead>
+            <tr>
+                <th width="10%" style="text-align: center;">Product Name</th>
+                <th width="7%" style="text-align: center;">Image</th>
+                <th width="5%" style="text-align: center;">Price (VND)</th>
+                <th width="5%" style="text-align: center;">Category</th>
+                <th width="10%" style="text-align: center;">Publisher</th>
+                <th width="5%" style="text-align: center;">Stock</th>
+                <th width="7%" style="text-align: center;">Date</th>
+                <th width="5%" style="text-align: center;">Sales</th>
+                <th width="10%" style="text-align: center;">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+        {{#each product}}
+            <tr>
+                <td style="text-align: center; font-size: large; vertical-align:middle">{{this.name}}</td>
+                <td style="text-align: center;"><img src={{this.image}} style="width:auto;height:100px; vertical-align:middle" /></td>
+                <td style="text-align: center; font-size: large; vertical-align:middle">{{this.price}}</td> 
+                <td style="text-align: center; font-size: large; vertical-align:middle">{{this.category}}</td>
+                <td style="text-align: center; font-size: large; vertical-align:middle">{{this.publisher}}</td>
+                <td style="text-align: center; font-size: large; vertical-align:middle">{{this.amount}}</td>
+                <td style="text-align: center; font-size: large; vertical-align:middle">{{this.createdAt}}</td>
+                <td style="text-align: center; font-size: large; vertical-align:middle">{{this.sales}}</td>
+                <td style="vertical-align:middle">
+                    <div class="icon-bar">
+                        <a class="active" href="#">
+                            <i class="fas fa-pencil-alt"></i>
+                        </a>
+                        <a class="active" href="#">
+                            <i class="fas fa-trash-alt"></i>
+                        </a>
+                    </div>
+                </td>
+            </tr>
+        {{/each}}
+        </tbody>
+        <div class="col-md-12">
+            <div class="pagination col-md-12"style="margin-left:10px">
+                <ul class="page-list">
+                    <li class="page"><a href="#">&lt;&lt;</a></li>
+                    {{#each pages}}
+                    <li class=" page"><a href={{this.pageA}}>{{this.page}}</a></li>
+                    {{/each}}
+                    <li class="page"><a href="#">&gt;&gt;</a></li>
+                </ul>
+            </div>
+
+        </div>
+        
+    </table>
+    <a href="/vendor/createproduct/{{vendor_id}}">
+    <button class="press create-button">
+        Create New Product
+    </button>
+            </a>
+
+    </div>
+</div>

@@ -421,6 +421,28 @@ iframe {
   }
 }
 
+.confirm-button{
+  background-color: #04AA6D;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    margin: 0 auto;
+    display: block;
+    cursor: pointer;
+    width: 30%;
+    opacity: 0.9;
+}
 
+.cancel-button{
+  background-color: #aa0404;
+    color: white;
+    padding: 16px 140px;
+    border: none;
+    margin: 0 auto;
+    display: block;
+    cursor: pointer;
+    width: 30%;
+    opacity: 0.9;
+}
 /*//////////////////////////////////////////////////////////////////
 [ Responsive ]*/

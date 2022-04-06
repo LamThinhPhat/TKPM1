@@ -8,7 +8,7 @@ class UserController {
 
     //[GET] order page /order
     OrderPage(req, res) {
-        res.render('user/order' );
+        res.render('user/order');
     }
 
     logOut(req, res) {

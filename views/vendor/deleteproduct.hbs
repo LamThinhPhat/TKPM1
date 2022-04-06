@@ -1,0 +1,40 @@
+<form method="POST" action='/vendor/delete/{{detail._id}}?_method=DELETE'>
+  <div class="layout_padding-2">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+          <div class="img_box">
+            <figure><img src={{detail.image}} alt="#" /></figure>
+          </div>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 product_detail_side">
+          <div class="abotext_box">
+            <div class="product-heading">
+              <h2>Name:{{detail.name}}</h2>
+              <h2>Category:{{detail.category}}</h2>
+              <h2>Publisher:{{detail.publisher}}</h2>
+            </div>
+            <div class="product-detail-side">
+              <span class="new-price">{{detail.price}}đ</span>
+            </div>
+            <div class="product-detail-side">
+              <div id="description" class="tab-pane active">
+                <h2>Description:</h2>
+                <div class="product_desc">
+                  <p>{{detail.description}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="full" style="margin-top:40px;display:flex">
+          <button type="submit" class="confirm-button">CONFIRM</button>
+          <a href="/vendor/manageproduct/{{detail.vendor_id}}" <button class="cancel-button">CANCEL</button></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</form>

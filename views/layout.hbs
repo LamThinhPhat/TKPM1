@@ -25,11 +25,12 @@
     <link rel="stylesheet" href="/css/jquery.mCustomScrollbar.min.css">
     <!-- Tweaks for older IEs-->
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
+        media="screen">
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
- <link rel="icon" type="image/png" href="/images/icons/favicon.ico"/>
+    <link rel="icon" type="image/png" href="/images/icons/favicon.ico" />
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="/vendor/bootstrap/css/bootstrap.min.css">
     <!--===============================================================================================-->
@@ -52,110 +53,123 @@
 <!-- body -->
 
 <body class="main-layout">
-<!-- loader  -->
+    <!-- loader  -->
 
-<div class="wrapper">
-    <div id="content">
-        <!-- header -->
-        <header>
-            <!-- header inner -->
-            <div class="header">
+    <div class="wrapper">
+        <div id="content">
+            <!-- header -->
+            <header>
+                <!-- header inner -->
+                <div class="header">
 
-                <div class="container-fluid">
+                    <div class="container-fluid">
 
-                    <div class="row">
-                        <div class="col-lg-3 logo_section">
-                            <div class="full">
-                                <div class="center-desk">
-                                    <div class="logo">
-                                        <a href="/"><img src="/images/logo.jpg" alt="#"></a>
+                        <div class="row">
+                            <div class="col-lg-3 logo_section">
+                                <div class="full">
+                                    <div class="center-desk">
+                                        <div class="logo">
+                                            <a href="/"><img src="/images/logo.jpg" alt="#"></a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-9">
-                            <div class="right_header_info">
-                                <div class="form-group has-search" style="display: inline-block;float:left;">
-                                <span class="fa fa-search form-control-feedback"></span>
-                                <input type="text" class="form-control" placeholder="Search">
-                                </div>
-                                <ul>
-                                    <li>
-                                        <div class="dropdown" style="display: inline;">
-                                          <button class="btn btn-secondary" type="button" id="dropdownMenu2" 
-                                          data-toggle="dropdown"
-                                          style="display: inline; margin-right: 15px">
-                                            Account
-                                          </button>
-                                          {{#if user}}
-                                          <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                            <a class="dropdown-item" href="/user/information">User information</a>
-                                            <a class="dropdown-item" href="/user/order">Order</a>
-                                            <a class="dropdown-item" href="/user/changepassword">Change password</a>
-                                            {{#ifCond user.role 1}}
-                                            <a class="dropdown-item" href="/vendor/manageproduct/{{user._id}}">Manage Product</a>
-                                            {{/ifCond}}
-                                            <a class="dropdown-item" href="/user/logout">Logout</a>
-                                          </div>
-                                          {{else}}
-                                         <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                            <a class="dropdown-item" href="/login">Login</a>
-                                            <a class="dropdown-item" href="/login/signup">Signup</a>
-                                          </div>
-                                        </div>
-                                        {{/if}}
-                                    </li>
-                                    <li>
-                                        <a href="/cart"><img style="margin-right: 15px;" src="/icon/3.png" alt="#" /></a>
-                                    </li>
+                            <div class="col-lg-9">
+                                <div class="right_header_info">
+                                    <div class="form-group has-search" style="display: inline-block;float:left;">
+                                        <span class="fa fa-search form-control-feedback"></span>
+                                        <form action="/product/search" method="GET">
+                                            <input type="search" class="form-control" placeholder="Search"
+                                                name="search" />
+                                        </form>
+                                    </div>
+                                    <ul>
+                                        <li>
+                                            <div class="dropdown" style="display: inline;">
+                                                <button class="btn btn-secondary" type="button" id="dropdownMenu2"
+                                                    data-toggle="dropdown" style="display: inline; margin-right: 15px">
+                                                    Account
+                                                </button>
+                                                {{#if user}}
+                                                <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                                    <a class="dropdown-item" href="/user/information">User
+                                                        information</a>
+                                                    <a class="dropdown-item" href="/user/order">Order</a>
+                                                    <a class="dropdown-item" href="/user/changepassword">Change
+                                                        password</a>
+                                                    {{#ifCond user.role 1}}
+                                                    <a class="dropdown-item"
+                                                        href="/vendor/manageproduct/{{user._id}}">Manage Product</a>
+                                                    <a class="dropdown-item"
+                                                        href="/vendor/manageorder/{{user._id}}">Manage Order</a>
+                                                    {{/ifCond}}
+                                                    <a class="dropdown-item" href="/user/logout">Logout</a>
+                                                </div>
+                                                {{else}}
+                                                <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                                    <a class="dropdown-item" href="/login">Login</a>
+                                                    <a class="dropdown-item" href="/login/signup">Signup</a>
+                                                </div>
+                                            </div>
+                                            {{/if}}
+                                        </li>
+                                        <li>
+                                            <a href="/cart"><img style="margin-right: 15px;" src="/icon/3.png"
+                                                    alt="#" />
+                                                    (
+                                                    <span id="header-total-cart">0</span>
+                                                    )
+                                            </a>
+                                        </li>
 
-                                </ul>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </header>
-    </div>
-    <!--header end here-->
-    {{{body}}}
-    <!--footer strat here-->
-    <footer>
-        <div class="footer">
-            <div class="container-fluid">
-                <div class="border1">
-                    <div class="row">
-                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12">
+            </header>
+        </div>
+        <!--header end here-->
+        {{{body}}}
+        <!--footer strat here-->
+        <footer>
+            <div class="footer">
+                <div class="container-fluid">
+                    <div class="border1">
+                        <div class="row">
+                            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12">
 
-                            <img class="logo1" src="/images/logo1.jpg" />
+                                <img class="logo1" src="/images/logo1.jpg" />
+                            </div>
+
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+
+                                <ul class="lik">
+                                    <li> <a href="/">Home</a></li>
+                                    <li> <a href="/about">About</a></li>
+                                    <li> <a href="/product">Product</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12">
+                                <ul class="sociel">
+                                    <li> <a href="#"><i class="fa fa-facebook-f"></i></a></li>
+                                    <li> <a href="#"><i class="fa fa-twitter"></i></a></li>
+                                    <li> <a href="#"><i class="fa fa-instagram"></i></a></li>
+                                    <li> <a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                </ul>
+                            </div>
                         </div>
 
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
-
-                            <ul class="lik">
-                                <li> <a href="/">Home</a></li>
-                                <li> <a href="/about">About</a></li>
-                                <li> <a href="/product">Product</a></li>
-                            </ul>
-                        </div>
-
-                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12">
-                            <ul class="sociel">
-                                <li> <a href="#"><i class="fa fa-facebook-f"></i></a></li>
-                                <li> <a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li> <a href="#"><i class="fa fa-instagram"></i></a></li>
-                                <li> <a href="#"><i class="fa fa-linkedin"></i></a></li>
-                            </ul>
-                        </div>
                     </div>
-
                 </div>
             </div>
-        </div>
-    </footer>
-    <!-- end footer -->
-</div>
+        </footer>
+        <!-- end footer -->
+    </div>
 </body>
+
 </html>
 
 <!-- Javascript files-->
@@ -165,6 +179,7 @@
 <script src="/js/jquery-3.0.0.min.js"></script>
 <script src="/js/slider.js"></script>
 <script src="/js/cart.js"></script>
+
 <div id="dropDownSelect1"></div>
 
 <!--===============================================================================================-->
