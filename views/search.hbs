@@ -1,12 +1,49 @@
 <link rel="stylesheet" href="/css/search.css">
 
+<div style ="width=100%; background:#0c9b8f; text-align:center; color:white; font-size:30px">Search Results</div>
+
+
 <div class="SortOptions">
-    <li class="p-2 mb-1 text-left"><span>Sort by:</span></li>
+    <button type="button" class="btn btn-info">Best Selling</button>
+    <button type="button" class="btn btn-info">New Items</button>
+    <button type="button" class="btn btn-info">Low Price </button>
+    <button type="button" class="btn btn-info">High Price</button>
 </div>
+
+<div class="SearchContainer">
+    <ol id="SearchList">
+        {{#each products}}
+            <li class="search-display">
+                <div class = "title">{{this.name}}</div>
+                <img src={{this.image}}>
+                <div class = "desc">{{this.description}}</div>
+                <div class = "price">{{this.price}}</div>
+            </li>
+        {{/each}}
+    </ol>
 
 <script src="/js/jquery.min.js"></script>
 
 <script>
+    $(window).scroll(function () {
+    // End of the document reached?
+    if ($(document).height() - $(this).height() == $(this).scrollTop()) {
+        $.ajax({
+            type: "POST",
+            url: "/search",
+            data: {page:page+1, search:search},
+            success: function (msg) {
+                if (msg.d) {
+                    $("SearchList").append(msg.d);
+                    console.log(msg.d)
+                }
+            },
+            error: function (req, status, error) {
+                alert("Error try again");
+            }
+        });
+    }
+}); 
     $(document).ready(function() {
 	$("div.input-card").hide();
     $("input[value$='card']").click(function() {
