@@ -202,5 +202,15 @@
 	}
 }
 
+.vendor-id{
+	margin-top: 10px;
+	font-size: large;
+	font-weight: bold;
+	color: #555;
+	background-color: rgb(255, 255, 255);
+	border: black;
+
+}
+
 
  

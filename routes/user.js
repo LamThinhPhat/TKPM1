@@ -8,6 +8,8 @@ router.post('/changepassword/:id', UserController.storeNewPass);
 
 router.get('/order', UserController.OrderPage);
 
+router.get('/cart', UserController.Cart);
+
 router.get('/logout', UserController.logOut);
 
 //update information

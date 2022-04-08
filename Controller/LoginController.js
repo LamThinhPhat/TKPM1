@@ -23,6 +23,7 @@ class LoginController {
             req.logIn(user, function (err) {
                 if (err) return next(err);
                 //success
+                res.locals.user = user;
                 return res.redirect('/');
             })
         })(req, res, next);

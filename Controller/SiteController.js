@@ -14,9 +14,6 @@ class SiteController{
         res.render("signup");
     }
 
-    Cart(req,res){
-        res.render("cart");
-    }
 
 }
 
