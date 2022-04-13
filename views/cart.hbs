@@ -2,54 +2,41 @@
 <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 <h1 style="color:#008000; font-weight:bold">SHOPPING CART</h1>
 
-<div class="shopping-cart">
+<div class="shopping-cart" id="user-id" data-userid={{cartuser._id}}>
+  {{#each cartuser.cart}}
+  <div class="vector-container " data-vendorid={{this.vendor_id}}>
+    <p class="vendor-id">{{this.vendor_email}}</p>
+    <div class="column-labels">
+      <label class="product-image">Image</label>
+      <label class="product-details">Product</label>
+      <label class="product-price">Price</label>
+      <label class="product-quantity">Quantity</label>
+      <label class="product-removal">Remove</label>
+      <label class="product-line-price">Total</label>
+    </div>
+    {{#each this.items}}
+    <div class="product" id="product" >
+      <div class="product-image">
+        <img src={{this.image}}>
+      </div>
+      <div class="product-details">
+        <div class="product-title">{{this.name}}</div>
+      </div>
+      <div class="product-price">{{this.price}}</div>
+      <div class="product-quantity">
+        <input type="number" value={{this.quantity}} min=1 max={{this.amount}} data-bookid={{this.id}} oninput="updateQuantity(event)">
+      </div>
+      <div class="product-removal" >
+        <button class="remove-product" onclick="removeItem(event)" data-bookid={{this.id}}>
+          Remove
+        </button>
+      </div>
+      <div class="product-line-price">{{this.total}}</div>
+    </div>
+        {{/each}}
+    </div>
 
-  <div class="column-labels">
-    <label class="product-image">Image</label>
-    <label class="product-details">Product</label>
-    <label class="product-price">Price</label>
-    <label class="product-quantity">Quantity</label>
-    <label class="product-removal">Remove</label>
-    <label class="product-line-price">Total</label>
-  </div>
-
-  <div class="product">
-    <div class="product-image">
-      <img src="images/s&w.jpg">
-    </div>
-    <div class="product-details">
-      <div class="product-title">Spice & Wolf</div>
-    </div>
-    <div class="product-price">69000</div>
-    <div class="product-quantity">
-      <input type="number" value="2" min="1">
-    </div>
-    <div class="product-removal">
-      <button class="remove-product">
-        Remove
-      </button>
-    </div>
-    <div class="product-line-price">69000</div>
-  </div>
-
-  <div class="product">
-    <div class="product-image">
-      <img src="images/wolfie.jpg">
-    </div>
-    <div class="product-details">
-      <div class="product-title">Wolfie The Bunny</div>
-    </div>
-    <div class="product-price">52000</div>
-    <div class="product-quantity">
-      <input type="number" value="1" min="1">
-    </div>
-    <div class="product-removal">
-      <button class="remove-product">
-        Remove
-      </button>
-    </div>
-    <div class="product-line-price">52000</div>
-  </div>
+    {{/each}}
 
   <div class="totals">
     <div class="totals-item">
@@ -65,7 +52,7 @@
       <div class="totals-value" id="cart-total">0</div>
     </div>
   </div>
-      
-      <button class="checkout">Checkout</button>
+
+  <button class="checkout">Checkout</button>
 
 </div>

@@ -8,6 +8,8 @@ router.post('/changepassword/:id', UserController.storeNewPass);
 
 router.get('/order', UserController.OrderPage);
 
+router.get('/cart', UserController.Cart);
+
 router.get('/logout', UserController.logOut);
 
 //update information
@@ -16,5 +18,10 @@ router.get('/information', UserController.InformationPage);
 
 //apply for vendor
 router.get('/applyforvendor/:id',UserController.applyForVendor);
+
+router.delete('/cart/:id', UserController.deleteCart);
+
+router.put('/cart/:id', UserController.updateCart);
+
 
 module.exports = router;

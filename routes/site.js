@@ -8,6 +8,4 @@ router.get('/about', SiteController.AboutPage);
 router.get('/', SiteController.HomePage);
 
 
-router.get('/cart', SiteController.Cart);
-
 module.exports = router;

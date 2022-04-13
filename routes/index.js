@@ -4,16 +4,17 @@ const UserRouter = require('../routes/user');
 const VendorRouter = require('../routes/vendor');
 const ProductRouter=require('../routes/product');
 const AdminRouter = require('../routes/admin');
+const loginGaurd = require('../utils/loginguard');
 const createError = require('http-errors');
 
 function route(app) {
     app.use('/', SiteRouter);
 
-    app.use('/login', loginRouter);
+    app.use('/login',loginGaurd.LoginedGuard, loginRouter);
 
-    app.use('/user', UserRouter);
+    app.use('/user', loginGaurd.LoginGuard,UserRouter);
 
-    app.use('/vendor', VendorRouter);
+    app.use('/vendor',loginGaurd.LoginGuard, VendorRouter);
 
     app.use('/product', ProductRouter);
 

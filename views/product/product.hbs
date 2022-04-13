@@ -1,36 +1,27 @@
-<div class="layout_padding-2">
-    <div class="container">
-        <div class="row">
-            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
-                <div class="img_box">
-                    <figure><img src={{detail.image}} alt="#" /></figure>
-                </div>
-            </div>
-            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 product_detail_side">
-                <div class="abotext_box">
-                    <div class="product-heading">
-                        <h2>{{detail.name}}</h2>
-                        <h2>Category:{{detail.category}}</h2>
-                        <h2>Publisher:{{detail.publisher}}</h2>
-                        <h2>Vendor name:{{vendor.lastName}}</h2>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/product.css">
 
-                    </div>
-                    <div class="product-detail-side">
-                        <span class="new-price">{{detail.price}}đ</span>
-                    </div>
-                    <div class="detail-contant">
-                        <p>
-                        </p>
-                        <form class="cart" method="post" action="shop-cart.html">
-                            <div class="quantity">
-                                <input step="1" min="1" max="5" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" type="number">
-                            </div>
-                            <button type="submit" class="bt_main">Add to cart</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-5">
+            <img src={{detail.image}} class="itemImg" alt="">
         </div>
+
+        <div class="col-md-7">
+            <h2>{{detail.name}}</h2>
+            <p class="price">Price: {{detail.price}}</p>
+            <p>Category: {{detail.category}}</p>
+            <p>Publisher: {{detail.publisher}}</p>
+            <p>Vendor: {{vendor.email}}</p>
+            <label>Quantity: </label>
+            <input class="qty" type="number" value="1">
+            <button type="button" class="btn btn-default cart">ADD TO CART</button>
+        </div>
+
         <div class="row">
             <div class="col-md-12">
                 <div class="full">
@@ -42,7 +33,7 @@
                         <div class="tab-content">
                             <div id="description" class="tab-pane active">
                                 <div class="product_desc">
-                                    <p>{{detail.description}}</p>
+                                    <p style="font-style: italic;">{{detail.description}}</p>
                                 </div>
                             </div>
                             

@@ -1,4 +1,6 @@
 const userService = require('../services/userService.js');
+const CircularJSON=require('circular-json');
+const cartService = require('../services/cartService.js');
 
 class UserController {
     //[GET] infomation page /user
@@ -8,14 +10,13 @@ class UserController {
 
     //[GET] order page /order
     OrderPage(req, res) {
-        res.render('user/order');
+        console.log(res.locals.user);
     }
 
     logOut(req, res) {
         req.logout();
         res.redirect('/');
     }
-
     async storeUpdateInformation(req, res) {
         const valid = await userService.updateInfo(req.params.id, req.body);
         if (valid) {
@@ -67,6 +68,32 @@ class UserController {
         } else {
             res.render('user/changepassword', { success: "Password has been changed" });
         }
+    }
+
+    async Cart(req,res){
+        const cartuser =  await userService.getCustomer(res.locals.user._id);
+        res.render("cart", {cartuser});
+    }
+
+    async deleteCart(req, res) {
+        const bookID = req.body.bookID;
+        const userID = req.body.userID;
+        const vendorID = req.body.vendorID;
+        const error = await cartService.removeProductFromCart(userID, bookID,vendorID);
+        if (!error) {
+            
+        } else res.send({ error }); //remove fail
+    }
+
+    async updateCart(req, res) {
+        const bookID = req.body.bookID;
+        const userID = req.body.userID;
+        const vendorID = req.body.vendorID;
+        const quantity=parseInt(req.body.quantity);
+        const error = await cartService.updateCart(userID, bookID,vendorID,quantity);
+        if (!error) {
+            
+        } else res.send({ error }); //remove fail
     }
 }
 
