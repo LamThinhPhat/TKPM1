@@ -1,0 +1,39 @@
+.container{
+    margin-top: 80px;
+    margin-bottom: 30px;
+}
+
+.itemImg{
+    width: 60%;
+    margin-left: 30%;
+}
+
+.col-md-7 h2{
+    color: green;
+}
+
+.price{
+    color: #fe980f;
+    font-size:25px;
+    font-weight: bold;
+    padding-top: 10px;
+}
+
+.price:after{
+    content: ' VND'
+}
+
+.qty{
+    border: 1px solid #ccc;
+    font-weight: bold;
+    height: 33px;
+    text-align: center;
+    width: 50px;
+}
+
+.cart{
+    background-color: #fe980f;
+    color: #FFFFFF;
+    font-size: 15px;
+    margin-left: 20px;
+}
