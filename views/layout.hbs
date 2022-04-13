@@ -103,6 +103,12 @@
                                                     <a class="dropdown-item"
                                                         href="/vendor/manageorder/{{user._id}}">Manage Order</a>
                                                     {{/ifCond}}
+                                                    {{#ifCond user.role 2}}
+                                                    <a class="dropdown-item"
+                                                        href="admin/manageuser/">Manage User</a>
+                                                    <a class="dropdown-item"
+                                                        href="admin/managevoucher/">Manage Voucher</a>
+                                                    {{/ifCond}}
                                                     <a class="dropdown-item" href="/user/logout">Logout</a>
                                                 </div>
                                                 {{else}}
@@ -114,7 +120,7 @@
                                             {{/if}}
                                         </li>
                                         <li>
-                                            <a href="/user/cart"><img style="margin-right: 15px;" src="/icon/3.png"
+                                            <a href="/cart"><img style="margin-right: 15px;" src="/icon/3.png"
                                                     alt="#" />
                                                     (
                                                     <span id="header-total-cart">0</span>

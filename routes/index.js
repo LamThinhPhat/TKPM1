@@ -3,19 +3,21 @@ const loginRouter = require('../routes/login');
 const UserRouter = require('../routes/user');
 const VendorRouter = require('../routes/vendor');
 const ProductRouter=require('../routes/product');
-const loginGaurd = require('../utils/loginguard');
+const AdminRouter = require('../routes/admin');
 const createError = require('http-errors');
 
 function route(app) {
     app.use('/', SiteRouter);
 
-    app.use('/login',loginGaurd.LoginedGuard, loginRouter);
+    app.use('/login', loginRouter);
 
-    app.use('/user', loginGaurd.LoginGuard,UserRouter);
+    app.use('/user', UserRouter);
 
-    app.use('/vendor',loginGaurd.LoginGuard, VendorRouter);
+    app.use('/vendor', VendorRouter);
 
     app.use('/product', ProductRouter);
+
+    app.use('/admin', AdminRouter);
 
     //catch 404 and forward to error handler
     app.use(function(req, res, next) {

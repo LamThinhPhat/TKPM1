@@ -29,31 +29,7 @@ class VendorController {
         console.log(err);
     }    
     }
-
-    async ManageVoucher(req, res) {
-        const request = req.query;
-        const page = request.page || 1;
-        const vendor_id=req.params.id;
-        delete request.page;
-
-        try {
-            const [product, pages] = await productService.getVendorProduct(page,vendor_id);
-            res.render('vendor/managevoucher', {vendor_id, product, pages, currentPage: page });
-        } catch (err) {
-            console.log(err);
-        }
-    }
-
-    CreateVoucher(req, res) {
-        const vendor_id=req.params.id;
-        try {
-            console.log(vendor_id);
-        res.render('vendor/createvoucher',{vendor_id});
-    } catch (err) {
-        console.log(err);
-    }
-    }
-
+    
     async StoreProduct(req,res){
         const vendor_id=req.params.id;
     try {

@@ -40,7 +40,7 @@ const SearchProduct = async (reqPage, query, search) => {
     let pages = [];
 
     try {
-        products = await product.find({}).lean();
+        products = await product.find(query).lean();
         const perPage = 6;
         const page = parseInt(reqPage);
 

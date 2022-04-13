@@ -1,5 +1,4 @@
 const userService = require('../services/userService.js');
-const CircularJSON=require('circular-json');
 
 class UserController {
     //[GET] infomation page /user
@@ -9,13 +8,14 @@ class UserController {
 
     //[GET] order page /order
     OrderPage(req, res) {
-        console.log(res.locals.user);
+        res.render('user/order');
     }
 
     logOut(req, res) {
         req.logout();
         res.redirect('/');
     }
+
     async storeUpdateInformation(req, res) {
         const valid = await userService.updateInfo(req.params.id, req.body);
         if (valid) {
@@ -67,11 +67,6 @@ class UserController {
         } else {
             res.render('user/changepassword', { success: "Password has been changed" });
         }
-    }
-
-    async Cart(req,res){
-        const user =  await userService.getCustomer(res.locals.user._id);
-        res.render("cart", user);
     }
 }
 
