@@ -1,0 +1,32 @@
+<link rel="stylesheet" href="/css/create_product.css">
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+
+<form id = 'editvoucherform' name="forms-add-voucher" method="POST" action='/admin/edit/{{item._id}}?_method=PUT' enctype="application/x-www-form-urlencoded">
+  <div class="container">
+    <h1>CREATE NEW VOUCHER</h1>
+    <p style="text-align: center;">Fill in the following information.</p>
+    <hr>
+
+    <label for="name"><b>Voucher Name</b></label>
+    <input type="text" placeholder="Enter voucher name..." name="name" value="{{item.name}}" required>
+
+    <label for="discount"><b>Discount</b></label>
+    <input type="number" placeholder="Enter discount percentage..." name="discount" value="{{item.discount}}" id="discount"required min="1" max="100">
+
+    <label for="status"><b>Status</b></label>
+    <input type="checkbox" name="status" id="statuscheck" {{#if item.status}}checked value ="true"{{/if}}{{#unless item.status}}value ='true'{{/unless}}>
+    <input type="hidden" id="statushidden" name="status" value="false">
+
+    <button type="submit" class="registerbtn">UPDATE</button>
+  </div>
+</form>
+
+<script>
+  $("form").submit(function(){
+    alert.("SDASD");
+    if(document.getElementById("statuscheck").checked) {
+    document.getElementById('statushidden').disabled = true;
+    }
+})
+</script>

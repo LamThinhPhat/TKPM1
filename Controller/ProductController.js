@@ -1,5 +1,5 @@
 const productService = require('../services/productService');
-
+const userService = require('../services/userService.js');
 
 class ProductController {
     //[GET] all product list
@@ -31,7 +31,10 @@ class ProductController {
         const page = req.query.page || 1;
         try {
             const [detail, vendor,pages] = await productService.adjustDetail(req.params.slug, page);
-            res.render('product/product', { detail,vendor, pages, currentPage: page });
+            var user;
+            if(res.locals.user!=null) user=true;
+            else user=false;
+            res.render('product/product', { detail,vendor, pages, user,currentPage: page });
         } catch (err) {
             console.log(err);
         }

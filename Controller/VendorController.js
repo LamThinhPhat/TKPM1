@@ -23,7 +23,6 @@ class VendorController {
     CreateProduct(req, res) {
         const vendor_id=req.params.id;
         try {
-            console.log(vendor_id);
         res.render('vendor/createproduct',{vendor_id});
     } catch (err) {
         console.log(err);

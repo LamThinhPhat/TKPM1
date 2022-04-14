@@ -370,3 +370,17 @@ h1 {text-align: center; padding-top: 40px; padding-bottom: 20px;}
 .table tbody tr:hover td{
     background-color: rgb(226, 226, 226);
 }
+
+.statbut {
+    background-color: #04AA6D;
+    width: 50%;
+    height: 20%;
+}
+
+.statbut:hover {
+    background-color: #058f5c;
+}
+
+.statbut:active {
+    background-color: #067c51;
+}

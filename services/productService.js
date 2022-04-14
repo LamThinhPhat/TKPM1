@@ -59,6 +59,7 @@ const SearchProduct = async (reqPage, query, search) => {
             let slug = "/product/" + item.slug;
            return { ...item, name: name, slug: slug }
         })
+        products = products.sort((a, b) => b.sales - a.sales);
         return [products, pages];
     } catch (error) {
         console.log(error)
@@ -75,7 +76,6 @@ const adjustDetail = async (slug, reqPage) => {
     try {
         detail = await product.findOne({ slug: slug }).lean();
         vendor=await user.findOne({_id:detail.vendor_id}).lean(); 
-        console.log(vendor);
         return [detail, vendor,pages, len];
     } catch (err) {
         console.log(err);

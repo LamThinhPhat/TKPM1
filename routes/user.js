@@ -23,5 +23,11 @@ router.delete('/cart/:id', UserController.deleteCart);
 
 router.put('/cart/:id', UserController.updateCart);
 
+router.post('/cart/:id', UserController.addCart);
 
+router.get('/checkout',UserController.CheckoutPage);
+
+router.put('/checkout/:id',UserController.applyVoucher);
+
+router.post('/checkout/:id',UserController.checkOut);
 module.exports = router;

@@ -1,25 +1,26 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="/css/product.css">
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
-<div class="container">
+<div class="container"id="detail" >
     <div class="row">
         <div class="col-md-5">
-            <img src={{detail.image}} class="itemImg" alt="">
+            <img src={{detail.image}} class="itemImg" alt="" id="bookimage">
         </div>
 
         <div class="col-md-7">
-            <h2>{{detail.name}}</h2>
-            <p class="price">Price: {{detail.price}}</p>
+            <h2 >{{detail.name}}</h2>
+            <p data-price={{detail.price}}>Price: {{detail.price}}</p>
             <p>Category: {{detail.category}}</p>
             <p>Publisher: {{detail.publisher}}</p>
-            <p>Vendor: {{vendor.email}}</p>
+            <p class="vendor" >Vendor: {{vendor.email}}</p>
             <label>Quantity: </label>
-            <input class="qty" type="number" value="1">
-            <button type="button" class="btn btn-default cart">ADD TO CART</button>
+            <input id ="qty"class="qty" type="number" min=1 value=1 max={{detail.amount}}>
+            {{#if user}}
+            <button type="button" class="btn btn-default cart"  onclick="addCart(event)" data-bookid={{detail._id}}>ADD TO CART</button>
+            <span id="add-cart-notice"></span>
+            {{else}}
+            <a href="/login/"><button type="button" class="btn btn-default cart" style="background:black">LOGIN FIRST</button></a>
+            {{/if}}
         </div>
 
         <div class="row">

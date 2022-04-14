@@ -1,0 +1,112 @@
+<link rel="stylesheet" href="/css/order.css">
+<div class="container">
+    <article class="card">
+        <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+        <h1 style="color:#008000; font-weight:bold">CHECKOUT</h1>
+        {{#each cartuser.cart}}
+        <div class="card-body">
+            <article class="card">
+                <div class="card-body row">
+                    <div class="col"> <strong>Vendor email:</strong> {{this.vendor_email}} </div>
+                    <div class="col"> <strong>Total:</strong> {{this.total}} </div>
+                </div>
+            </article>
+            {{#each this.items}}
+            <table class="data-tables table table-bordered" style="width:100%">
+                <thead style="background-color: #48AAAD; color: white">
+                    <tr>
+                        <th width="7%" style="text-align: center;">Item</th>
+                        <th width="10%" style="text-align: center;">Product Name</th>
+                        <th width="3%" style="text-align: center;">Amount</th>
+                        <th width="3%" style="text-align: center;">Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><img src={{this.image}} style="width:auto;height:100px; vertical-align:middle"></td>
+                        <td>{{this.name}}</td>
+                        <td>{{this.quantity}}</td>
+                        <td>{{this.total}}</td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+            {{/each}}
+            <div class="col-md-12">
+                <div class="pagination col-md-12" style="margin-left:10px">
+                    <ul class="page-list">
+                        <li class="page"><a href="#">&lt;&lt;</a></li>
+                        {{#each pages}}
+                        <li class=" page"><a href={{this.pageA}}>{{this.page}}</a></li>
+                        {{/each}}
+                        <li class="page"><a href="#">&gt;&gt;</a></li>
+                    </ul>
+                </div>
+
+            </div>
+            <div id="current-page" style="display: none;" name={{currentPage}}></div>
+            <div class="line"></div>
+        </div>
+
+        {{!-- Payment Information --}}
+        <form name="forms-checkout" method="POST"action='checkout/{{cartuser._id}}'>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title" style="margin-bottom: -10px;">
+                                <p class="fw-bold" style="font-size: large; font-weight: bold;">PAYMENT METHOD</p>
+                            </h5>
+                            <div class="col"> <strong>Voucher:</strong>
+                                {{#if cartuser.voucher_applied}}
+                                <input id="voucher_id" type="text" placeholder="Your Code..."
+                                    style="box-shadow: 0 0 0 1px hsla(0, 0%, 0%, 0.5);" value={{cartuser.voucher_applied}}
+                                    disabled>
+                                <button data-userid={{cartuser._id}} onclick="applyVoucher(event)"disabled>Apply</button>
+                                {{else}}
+                                <input id="voucher_id" type="text" placeholder="Your Code..."
+                                    style="box-shadow: 0 0 0 1px hsla(0, 0%, 0%, 0.5);">
+                                <button data-userid={{cartuser._id}} onclick="applyVoucher(event)">Apply</button>
+                                {{/if}}
+
+                            </div>
+                            <label for="chkYes">
+                                <input type="radio" id="chkYes" name="chk" onclick="ShowHideDiv()" />
+                                Credit Card
+                            </label>
+                            <label for="chkNo">
+                                <input type="radio" id="chkNo" name="chk" onclick="ShowHideDiv()" />
+                                Cash
+                            </label>
+                            <br>
+                            <div id="dvtext" style="display: none">
+                                Card Number:
+                                <input type="text" id="cardNumber" name="cardNumber"style="box-shadow: 0 0 0 1px hsla(0, 0%, 0%, 0.5);" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title" style="margin-bottom: -10px;">
+                                <p class="fw-bold" style="font-size: large; font-weight: bold;">USER INFORMATION</p>
+                            </h5>
+                            <p class="card-text">
+                                Name: {{cartuser.firstName}} {{cartuser.lastName}} <br>
+                                Address: {{cartuser.address}}
+                            </p>
+
+                            <button type="submit" class="btn btn-outline-primary btn-sm">
+                                CONFIRM CHECKOUT
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </form>
+
+</div>
+

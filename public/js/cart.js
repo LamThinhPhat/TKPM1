@@ -1,5 +1,5 @@
 /* Set rates + misc */
-var taxRate = 0.05;
+var taxRate = 0;
 var fadeTime = 300;
 
 
@@ -105,5 +105,31 @@ function removeItem(e) {
         if (!vendorRow.querySelector("#product")) vendorRow.remove();
         recalculateCart();
       })
+    )
+}
+
+function addCart(e){
+  const bookid = e.target.getAttribute("data-bookid");
+  const quantity=document.getElementById('qty').value;
+  const url = window.location.origin + `/user/cart/${bookid}`;
+  const noticeText = document.getElementById('add-cart-notice');
+
+  fetch(url, {
+    method: 'POST',
+    body: JSON.stringify({
+      bookid,
+      quantity
+    }),
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8'
+    }
+  })
+  .then(res => res.json())
+    .then(response => console.log('Success:', JSON.stringify(response)),
+      function(){
+        noticeText.innerText = '+ 1';
+        setTimeout(() => noticeText.innerText = '', 1000);
+
+      }
     )
 }

@@ -1,31 +1,16 @@
 <link rel="stylesheet" href="/css/create_product.css">
-<form name="forms-add-product" method="POST" action='/vendor/store/{{vendor_id}}' enctype="multipart/form-data">
+<form name="forms-add-voucher" method="POST" action='/admin/store' enctype="application/x-www-form-urlencoded">
   <div class="container">
-    <h1>CREATE NEW PRODUCT</h1>
+    <h1>CREATE NEW VOUCHER</h1>
     <p style="text-align: center;">Fill in the following information.</p>
     <hr>
 
-    <label for="pname"><b>Product Name</b></label>
-    <input type="text" placeholder="Enter product name..." name="name" required>
+    <label for="name"><b>Voucher Name</b></label>
+    <input type="text" placeholder="Enter voucher name..." name="name" required>
 
-    <label for="price"><b>Price</b></label>
-    <input type="number" placeholder="Enter price..." name="price" id="price"required>
+    <label for="discount"><b>Discount</b></label>
+    <input type="number" placeholder="Enter discount percentage..." name="discount" id="discount"required min="1" max="100">
 
-    <label for="image"><b>Add Image</b></label>
-    <input type="file" placeholder="Enter image source..." name="image" id="image" accept="image/*" style="padding-bottom: 15px"required>
-
-    <label for="amount"><b>Stock</b></label>
-    <input type="number" placeholder="Enter number..." name="amount" id="amount"required>
-
-    <label for="category"><b>Category</b></label>
-    <input type="text" placeholder="Enter category..." name="category" id="category"required>
-
-    <label for="description"><b>Description</b></label>
-    <input type="text" placeholder="Enter description..." name="description" id="description" required>
-
-    <label for="publisher"><b>Publisher</b></label>
-    <input type="text" placeholder="Enter publisher..." name="publisher" id="publisher" required>
-    <hr>
     <button type="submit" class="registerbtn">CREATE</button>
   </div>
 </form>
