@@ -13,7 +13,6 @@ const user = new Schema({
     role: { type: Number, default: 0 }, //user/admin
     status: { type: Boolean, default: true }, //ban/unban
     cart: { type: Array,default:[] },
-    voucher_applied:{type:String},
     emailToken: { type: String },
     active: { type: Boolean, default: false },
 }, {

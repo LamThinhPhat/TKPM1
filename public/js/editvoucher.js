@@ -4,7 +4,7 @@ $(document).ready(function(){
       document.getElementById('statushidden').disabled = true;
       }
     })
-    $('.trashlink').click( function() {
+    $('.trashlink').click('submit', function() {
         let $row = $(this).closest('tr');
         let id = $row.find('.vid').text();
         $.ajax({

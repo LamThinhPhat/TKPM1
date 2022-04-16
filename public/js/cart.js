@@ -1,5 +1,5 @@
 /* Set rates + misc */
-var taxRate = 0;
+var taxRate = 0.05;
 var fadeTime = 300;
 
 
