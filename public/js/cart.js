@@ -1,5 +1,5 @@
 /* Set rates + misc */
-var taxRate = 0.05;
+var taxRate = 0;
 var fadeTime = 300;
 
 
@@ -133,3 +133,4 @@ function addCart(e){
       }
     )
 }
+

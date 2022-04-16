@@ -19,9 +19,10 @@ class ProductController {
         const request = req.query;
         console.log(request.search);
         const page = request.page || 1;
+        const sort = request.sort || "bestselling";
         delete request.page;
         try {
-            const [product, pages] = await productService.SearchProduct(page, {name: { $regex: request.search, $options: "i" }}, request.search);
+            const [product, pages] = await productService.SearchProduct(page, {name: { $regex: request.search, $options: "i" }}, request.search, sort);
             res.render('product/search', { product, pages, currentPage: page, request});
         } catch (err) {
             console.log(err);

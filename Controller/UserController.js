@@ -1,5 +1,6 @@
 const userService = require('../services/userService.js');
 const cartService = require('../services/cartService.js');
+const orderService = require('../services/orderService.js');
 
 class UserController {
     //[GET] infomation page /user
@@ -8,8 +9,17 @@ class UserController {
     }
 
     //[GET] order page /order
-    OrderPage(req, res) {
-        console.log(res.locals.user);
+    async OrderPage(req, res) {
+        const userid =  res.locals.user._id;
+        const request = req.query;
+        const page = request.page || 1;
+        delete request.page;
+        try {
+        const [order,pages]=await orderService.getOrdersByUser(page,userid);
+        res.render('user/order',{order, pages, currentPage: page });
+    } catch (err) {
+        console.log(err);
+    }
     }
 
     logOut(req, res) {
@@ -67,10 +77,17 @@ class UserController {
             res.render('user/changepassword', { success: "Password has been changed" });
         }
     }
-
+    async CheckoutPage(req,res){
+        const request = req.query;
+        const page = request.page || 1;
+        const [cartuser, pages] =  await cartService.getCart(res.locals.user._id,page);
+        res.render('user/checkout', { cartuser, pages, currentPage: page });
+    }
     async Cart(req,res){
-        const cartuser =  await userService.getCustomer(res.locals.user._id);
-        res.render("cart", {cartuser});
+        const request = req.query;
+        const page = request.page || 1;
+        const [cartuser, pages] =  await cartService.getCart(res.locals.user._id,page);
+        res.render('cart', { cartuser, pages, currentPage: page });
     }
 
     async addCart(req,res){
@@ -89,7 +106,8 @@ class UserController {
         const vendorID = req.body.vendorID;
         const error = await cartService.removeProductFromCart(userID, bookID,vendorID);
         if (!error) {
-            
+            res.redirect(301,'/user/cart');
+
         } else res.send({ error }); //remove fail
     }
 
@@ -100,8 +118,34 @@ class UserController {
         const quantity=parseInt(req.body.quantity);
         const error = await cartService.updateCart(userID, bookID,vendorID,quantity);
         if (!error) {
-            
+            res.redirect(301,'/user/cart');
+
         } else res.send({ error }); //remove fail
+    }
+
+    async applyVoucher(req,res){
+        const voucher_name = req.body.voucher_name;
+        const userID = req.params.id;
+        const error = await cartService.applyVoucher(userID, voucher_name);
+        if (!error) {
+            res.redirect(301,'/user/checkout');
+        } else res.send({ error }); //remove fail
+
+    }
+    async cancelOrder(req,res){
+        const order_id=req.params.id;
+        const error = await orderService.cancelOrder(order_id);
+        if (!error) {
+            res.redirect(301,'/user/order');
+        } else res.send({ error }); //remove fail
+    }
+    async checkOut(req,res){
+        const cardNumber=req.body.cardNumber;
+        const orders=await orderService.checkOut(req.params.id,cardNumber);
+        if (!orders) {
+            res.redirect(301,'/user/order');
+        } else res.send({ orders }); //remove fail
+
     }
 }
 

@@ -7,7 +7,7 @@ function ShowHideDiv() {
 function applyVoucher(e){
     const voucher_name=document.getElementById('voucher_id').value;
     const userid=e.target.getAttribute("data-userid");
-    const url = window.location.origin + `/user/checkout/${userid}`;
+    const url = window.location.origin + `/user/checkout/applyvoucher/${userid}`;
   
     fetch(url, {
       method: 'PUT',
@@ -29,7 +29,7 @@ function applyVoucher(e){
 }
     
 
-function checkout(e){
-    const delForm = document.forms['forms-checkout'];
 
-}
+
+$("input:radio").change(function () {$("#confirm").prop("disabled", false);});
+

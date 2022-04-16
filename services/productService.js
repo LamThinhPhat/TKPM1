@@ -5,6 +5,37 @@ const multer = require('multer');
 const upload = multer({dest: 'uploads/'});
 const fs = require('fs');
 
+function shuffle(array) {
+    let currentIndex = array.length, randomIndex;
+    while (currentIndex != 0) {
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--;
+        [array[currentIndex], array[randomIndex]] = [
+            array[randomIndex], array[currentIndex]];
+    }
+    return array;
+}
+
+const getRandomProduct = async() => {
+    try {
+        let random_product = await product.find({});
+        shuffle(random_product);
+        random_product = random_product.slice(0,1);
+        return random_product; 
+    }
+    catch(err) {console.log(err)};
+}
+
+const getFeaturedProduct = async() => {
+    try {
+        let random_product = await product.find({});
+        shuffle(random_product);
+        random_product = random_product.slice(0,4);
+        return random_product; 
+    }
+    catch(err) {console.log(err)};
+}
+
 const getListProduct = async (reqPage) => {
     let products = [];
     let pages = [];
@@ -35,12 +66,29 @@ const getListProduct = async (reqPage) => {
 }
 }
 
-const SearchProduct = async (reqPage, query, search) => {
+const SearchProduct = async (reqPage, query, search, sort) => {
     let products = [];
     let pages = [];
 
     try {
         products = await product.find(query).lean();
+
+        if (sort == "newproduct") {
+            products.sort(function(a, b) {
+            var keyA = new Date(a.createdAt),
+              keyB = new Date(b.createdAt);
+            if (keyA < keyB) return -1;
+            if (keyA > keyB) return 1;
+            return 0;
+            });
+        } else if (sort == "lowprice") {
+            products = products.sort((a, b) => a.price - b.price);
+        } else if (sort == "highprice") {
+            products = products.sort((a, b) => b.price - a.price);
+        } else {
+            products = products.sort((a, b) => b.sales - a.sales);
+        }
+        
         const perPage = 6;
         const page = parseInt(reqPage);
 
@@ -49,7 +97,7 @@ const SearchProduct = async (reqPage, query, search) => {
         for (let i = 0; i < products.length / perPage; i++) {
             let temp = {};
             temp.page = i + 1;
-            temp.pageA = `?${"search=" + search +"&"}page=${i + 1}`;
+            temp.pageA = `?search=${search}&sort=${sort}&page=${i + 1}`;
             pages.push(temp);
         }
         products = products.slice(start, end);
@@ -59,7 +107,7 @@ const SearchProduct = async (reqPage, query, search) => {
             let slug = "/product/" + item.slug;
            return { ...item, name: name, slug: slug }
         })
-        products = products.sort((a, b) => b.sales - a.sales);
+
         return [products, pages];
     } catch (error) {
         console.log(error)
@@ -191,4 +239,6 @@ module.exports = {
     deleleProduct,
     getEditProduct,
     updateProduct,
+    getRandomProduct,
+    getFeaturedProduct,
 }

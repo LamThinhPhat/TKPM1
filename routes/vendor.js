@@ -20,4 +20,6 @@ router.put('/edit/:id', upload.single('image'), VendorController.updateProduct);
 router.get('/:id/delete', VendorController.deleteForm);
 router.delete('/delete/:id', VendorController.deleteProduct);
 
+router.put('/manageorder/:id',VendorController.changeStatusOrder);
+
 module.exports = router;

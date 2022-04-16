@@ -33,7 +33,7 @@ const SearchUser = async (reqPage, query, search) => {
 
     try {
         users = await user.find({}).lean();
-        const perPage = 6;
+        const perPage = 8;
         const page = parseInt(reqPage);
 
         const start = (page - 1) * perPage;
@@ -51,21 +51,6 @@ const SearchUser = async (reqPage, query, search) => {
         console.log(error)
     }
     
-}
-
-const adjustDetail = async (slug, reqPage) => {
-    let detail = null;
-    let vendor = null;
-    let pages = [];
-    let len = 0;
-
-    try {
-        detail = await product.findOne({ slug: slug }).lean();
-        console.log(vendor);
-        return [detail, vendor,pages, len];
-    } catch (err) {
-        console.log(err);
-    }
 }
 
 const addNew = async (body) => {
@@ -89,33 +74,6 @@ const deleteVoucher = async (id) => {
     }
 }
 
-const updateProduct = async (id, updatedProduct) => {
-    try {
-        if (file === undefined) {
-            await product.updateOne({ _id: id }, updatedProduct);
-            return await product.findById(id);
-
-        } else {
-            let oldProduct = await product.findById(id);
-            const path="./public"+oldProduct.image;
-            fs.unlink(path, (err) => {
-                if (err) {
-                    console.log("failed to delete local image:"+err);
-                } else {
-                    console.log('successfully deleted local image');                                
-                }
-        });
-            const image="/images/"+file.filename;  
-
-            updatedProduct.image = image;
-            await product.updateOne({ _id: id }, updatedProduct);
-            return await product.findById(id);
-        }
-
-    } catch (err) {
-        console.log(err);
-    }
-}
 
 
 module.exports = {

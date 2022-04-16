@@ -1,11 +1,29 @@
 const productService = require('../services/productService');
+const orderService = require('../services/orderService.js');
 
 class VendorController {
     
-    ManageOrder(req, res){
-        res.render('vendor/manageorder');
+    async ManageOrder(req, res) {
+        const vendor_id =  res.locals.user._id;
+        const request = req.query;
+        const page = request.page || 1;
+        delete request.page;
+        console.log(req);
+        try {
+        const [order,pages]=await orderService.getOrderByVendor(page,vendor_id);
+        res.render('vendor/manageorder',{order, pages, currentPage: page });
+    } catch (err) {
+        console.log(err);
     }
-
+    }
+    async changeStatusOrder(req,res){
+        const order_id=req.params.id;
+        const status=req.body.status;
+        const error = await orderService.changeStatus(order_id,status);
+        if (!error) {
+            res.redirect(301,'/vendor/manageorder');
+        } else res.send({ error }); //remove fail
+    }
     async ManageProduct(req, res) {
         const request = req.query;
         const page = request.page || 1;

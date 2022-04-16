@@ -12,7 +12,7 @@
     <input type="text" placeholder="Enter voucher name..." name="name" value="{{item.name}}" required>
 
     <label for="discount"><b>Discount</b></label>
-    <input type="number" placeholder="Enter discount percentage..." name="discount" value="{{item.discount}}" id="discount"required min="1" max="100">
+    <input type="number" placeholder="Enter discount value..." name="discount" value="{{item.discount}}" id="discount"required min="1">
 
     <label for="status"><b>Status</b></label>
     <input type="checkbox" name="status" id="statuscheck" {{#if item.status}}checked value ="true"{{/if}}{{#unless item.status}}value ='true'{{/unless}}>

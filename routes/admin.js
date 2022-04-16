@@ -15,4 +15,6 @@ router.delete('/delete/:id', AdminController.DeleteVoucher);
 router.get('/:id/edit', AdminController.EditPage);
 router.put('/edit/:id', AdminController.Editted)
 
+router.post('/ban/:id', AdminController.BanHammer);
+
 module.exports = router;

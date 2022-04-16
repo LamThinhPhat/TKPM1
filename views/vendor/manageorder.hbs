@@ -3,23 +3,30 @@
     <article class="card">
         <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
         <h1 style="color:#008000; font-weight:bold">ORDER LIST</h1>
+        {{#each order}}
         <div class="card-body">
             <article class="card">
                 <div class="card-body row">
-                    <div class="col"> <strong>Order ID:</strong> ODID1 </div>
-                    <div class="col"><strong>Status:</strong>
-                        <select name="status" id="status">
-                            <option value="confirmed">Confirmed</option>
-                            <option value="shipped">Shipped</option>
-                            <option value="packed">Packed</option>
-                            <option value="done">Done</option>
+                    <div class="col"> <strong>Order ID:{{this._id}}</strong> </div>
+                    {{#if this.cancel}}
+                    <div class="col"> <strong>Current status:Cancelled</strong> </div>
+                    {{else}}
+                    <div class="col"> <strong>Current status:{{this.status}}</strong> </div>
+                    <div class="col"><strong>Change status:</strong>
+                        <select name="status" id="status" data-orderid={{this._id}} value={{this.status}} oninput="changeStatus(event)">
+                            <option value="Confirmed">Confirmed</option>
+                            <option value="Shipped">Shipped</option>
+                            <option value="Packed">Packed</option>
+                            <option value="Done">Done</option>
                         </select>
                     </div>
-                    <div class="col"> <strong>Voucher:</strong> VCCD1 </div>
-                    <div class="col"> <strong>Total:</strong> 190.000 VND </div>
+                    {{/if}}
+                    
+                    <div class="col"> <strong>Voucher:</strong>{{this.voucher_applied}} </div>
+                    <div class="col"> <strong>Total:</strong> {{this.total}} </div>
                 </div>
             </article>
-
+            {{#each this.products}}
             <table class="data-tables table table-bordered" style="width:100%">
                 <thead style="background-color: #48AAAD; color: white">
                 <tr>
@@ -31,57 +38,16 @@
                 </thead>
                 <tbody>
                 <tr>
-                    <td><img src="/images/s&w.jpg" style="width:auto;height:100px; vertical-align:middle"></td>
-                    <td>Spice & Wolf</td>
-                    <td>2</td>
-                    <td>69.000</td>
-                </tr>
-                <tr>
-                    <td><img src="/images/wolfie.jpg" style="width:auto;height:100px; vertical-align:middle"></td>
-                    <td>Wolfie The Bunny</td>
-                    <td>1</td>
-                    <td>52.000</td>
+                    <td><img src={{this.image}} style="width:auto;height:100px; vertical-align:middle"></td>
+                    <td>{{this.name}}</td>
+                    <td>{{this.quantity}}</td>
+                    <td>{{this.price}}</td>
                 </tr>
                 </tbody>
             </table>
+            {{/each}}
             <div class="line"></div>
         </div>
-        <div class="card-body">
-            <article class="card">
-            <div class="card-body row">
-                <div class="col"> <strong>Order ID:</strong> ODID2 </div>
-                <div class="col"><strong>Status:</strong>
-                        <select name="status" id="status">
-                            <option value="confirmed">Confirmed</option>
-                            <option value="shipped">Shipped</option>
-                            <option value="packed">Packed</option>
-                            <option value="done">Done</option>
-                        </select>
-                    </div>
-                <div class="col"> <strong>Voucher:</strong> VCCD2 </div>
-                <div class="col"> <strong>Total:</strong> 110.000 VND </div>
-            </div>
-            </article>
-
-            <table class="data-tables table table-bordered" style="width:100%">
-                <thead style="background-color: #48AAAD; color: white">
-                <tr>
-                    <th width="7%" style="text-align: center;">Item</th>
-                    <th width="10%" style="text-align: center;">Product Name</th>
-                    <th width="3%" style="text-align: center;">Amount</th>
-                    <th width="3%" style="text-align: center;">Price</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td><img src="/images/attwn.jpg" style="width:auto;height:100px; vertical-align:middle"></td>
-                    <td>And Then There Were None</td>
-                    <td>1</td>
-                    <td>110.000</td>
-                </tr>
-                </tbody>
-            </table>
-            <div class="line"></div>
-        </div>
+        {{/each}}
     </article>
 </div>

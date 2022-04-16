@@ -70,6 +70,24 @@ class AdminController {
         console.log(err);
         }  
     }
+
+    async BanHammer(req, res) {
+        console.log(req.data);
+        try {
+            const user_id = req.params.id;
+            const dummy = await User.findOne({_id: user_id});
+            if (dummy.status){
+                await User.updateOne({_id: user_id}, {status: false});
+            }
+            else {await User.updateOne({_id: user_id}, {status: true});}
+            res.send(dummy.status);
+        }
+        catch (err) {
+            res.send(req.data);
+            console.log(err);
+        }  
+    }
+
 }
 
 module.exports = new AdminController;

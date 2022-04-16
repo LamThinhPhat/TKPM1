@@ -12,11 +12,13 @@
                         <a href="/product">Shop Now <i class='fa fa-angle-right'></i></a>
                     </div>
                 </div>
+                {{#each random_product}}
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
                     <div class="text-img">
-                        <figure><img src="images/attwn.jpg" /></figure>
+                        <figure><img style="width: 500px; height: 600px" src={{this.image}} /></figure>
                     </div>
                 </div>
+                {{/each}}
             </div>
         </div>
     </div>
@@ -69,34 +71,17 @@
 <div class="container-fluid">
     <div class="brand-bg">
         <div class="row">
+            {{#each random_featured}}
             <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 margintop">
+                <a href=/product/{{this.slug}}>
                 <div class="brand-box">
-                    <i><img src="images/harrypotter.jpg"/></i>
-                    <h3 style="color: #5ba3a1;">Harry Potter & The Order of The Phoenix</h3>
-                    <span>120.000 VND</span>
+                    <i><img src={{this.image}}></i>
+                    <h3 style="color: #5ba3a1;">{{this.name}}</h3>
+                    <span>{{this.price}} VND</span>
                 </div>
+                </a>
             </div>
-            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 margintop">
-                <div class="brand-box">
-                    <i><img src="images/dacnhantam.jpg"/></i>
-                    <h3 style="color: #5ba3a1;">Đắc Nhân Tâm</h3>
-                    <span>64.000 VND</span>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-                <div class="brand-box">
-                    <i><img src="images/davinci.jpg"/></i>
-                    <h3 style="color: #5ba3a1;">The Da Vinci Code</h3>
-                    <span>80.000 VND</span>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-                <div class="brand-box">
-                    <i><img src="images/attwn.jpg"/></i>
-                    <h3 style="color: #5ba3a1;">And Then There Were None</h3>
-                    <span>110.000 VND</span>
-                </div>
-            </div>
+            {{/each}}
         </div>
     </div>
 </div>
